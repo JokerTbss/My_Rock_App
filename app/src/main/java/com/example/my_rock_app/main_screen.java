@@ -68,7 +68,7 @@ public class main_screen extends Fragment {
 
             }
         });
-        // Inflate the layout for this fragment
+
         return view;
     }
 }

@@ -12,12 +12,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#E6DEDE"
+        android:backgroundTint="#E6DEDE"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/back_icon"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:backgroundTint="#97B3A2"
             android:text="back"></Button>
 
         <TextView
@@ -27,20 +30,25 @@
             android:layout_gravity="top"
             android:layout_marginLeft="40dp"
             android:gravity="center"
-            android:text="MY COLLECTION"></TextView>
+            android:text="MY COLLECTION"
+            android:textSize="15sp"
+            android:textColor="#716666"></TextView>
 
         <Button
             android:id="@+id/add_icon"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
+            android:backgroundTint="#97B3A2"
             android:text="add"></Button>
     </LinearLayout>
 
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#E6DEDE"
+        android:cacheColorHint="#E6DEDE" />
 
 
 </LinearLayout>

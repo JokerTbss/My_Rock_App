@@ -4,11 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CameraScreen">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E6DEDE"
+        android:backgroundTint="#E6DEDE"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/back_icon2"
+        android:backgroundTint="#97B3A2"
+        android:text="back"
+        android:textColor="@color/black"></Button>
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#E6DEDE"
+        android:gravity="center_horizontal"
+        android:text="CAMERA"
+        android:textColor="#322F2F" />
+    </LinearLayout>
 
 </FrameLayout>

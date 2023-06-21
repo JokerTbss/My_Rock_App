@@ -12,10 +12,10 @@ import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CameraScreen#newInstance} factory method to
+ * Use the {@link CreateFolder#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CameraScreen extends Fragment {
+public class CreateFolder extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class CameraScreen extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CameraScreen() {
+    public CreateFolder() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class CameraScreen extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CameraScreen.
+     * @return A new instance of fragment CreateFolder.
      */
     // TODO: Rename and change types and number of parameters
-    public static CameraScreen newInstance(String param1, String param2) {
-        CameraScreen fragment = new CameraScreen();
+    public static CreateFolder newInstance(String param1, String param2) {
+        CreateFolder fragment = new CreateFolder();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,15 +60,23 @@ public class CameraScreen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_camera_screen, container, false);
-        Button back = view.findViewById(R.id.back_icon2);
+        View view = inflater.inflate(R.layout.fragment_create_folder, container, false);
+        // Inflate the layout for this fragment
+        Button back= view.findViewById(R.id.back_icon1);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_cameraScreen_to_main_screen);
+                Navigation.findNavController(view).navigate(R.id.action_createFolder_to_myCollection);
             }
         });
-        // Inflate the layout for this fragment
+        Button done= view.findViewById(R.id.done_icon);
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_createFolder_to_myCollection);
+            }
+        });
+
         return view;
     }
 }

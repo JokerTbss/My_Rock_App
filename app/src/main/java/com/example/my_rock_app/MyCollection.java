@@ -69,6 +69,13 @@ public class MyCollection extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_myCollection_to_main_screen);
             }
         });
+        Button add = view.findViewById(R.id.add_icon);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_myCollection_to_createFolder);
+            }
+        });
         return view;
 
     }

@@ -21,7 +21,11 @@
         android:id="@+id/cameraScreen"
         android:name="com.example.my_rock_app.CameraScreen"
         android:label="fragment_camera_screen"
-        tools:layout="@layout/fragment_camera_screen" />
+        tools:layout="@layout/fragment_camera_screen" >
+        <action
+            android:id="@+id/action_cameraScreen_to_main_screen"
+            app:destination="@id/main_screen" />
+    </fragment>
     <fragment
         android:id="@+id/myCollection"
         android:name="com.example.my_rock_app.MyCollection"
@@ -30,5 +34,20 @@
         <action
             android:id="@+id/action_myCollection_to_main_screen"
             app:destination="@id/main_screen" />
+        <action
+            android:id="@+id/action_myCollection_to_createFolder"
+            app:destination="@id/createFolder" />
+        <action
+            android:id="@+id/action_myCollection_to_createFolder2"
+            app:destination="@id/createFolder" />
+    </fragment>
+    <fragment
+        android:id="@+id/createFolder"
+        android:name="com.example.my_rock_app.CreateFolder"
+        android:label="fragment_create_folder"
+        tools:layout="@layout/fragment_create_folder" >
+        <action
+            android:id="@+id/action_createFolder_to_myCollection"
+            app:destination="@id/myCollection" />
     </fragment>
 </navigation>
