@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/main_screen">
+
+    <fragment
+        android:id="@+id/main_screen"
+        android:name="com.example.my_rock_app.main_screen"
+        android:label="fragment_main_screen"
+        tools:layout="@layout/fragment_main_screen" >
+        <action
+            android:id="@+id/action_main_screen_to_cameraScreen"
+            app:destination="@id/cameraScreen" />
+        <action
+            android:id="@+id/action_main_screen_to_myCollection"
+            app:destination="@id/myCollection" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraScreen"
+        android:name="com.example.my_rock_app.CameraScreen"
+        android:label="fragment_camera_screen"
+        tools:layout="@layout/fragment_camera_screen" />
+    <fragment
+        android:id="@+id/myCollection"
+        android:name="com.example.my_rock_app.MyCollection"
+        android:label="fragment_my_collection"
+        tools:layout="@layout/fragment_my_collection" >
+        <action
+            android:id="@+id/action_myCollection_to_main_screen"
+            app:destination="@id/main_screen" />
+    </fragment>
+</navigation>
