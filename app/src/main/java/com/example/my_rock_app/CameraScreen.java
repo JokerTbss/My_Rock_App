@@ -10,6 +10,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.util.Size;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.camera.core.Camera;
+import androidx.camera.core.CameraSelector;
+import androidx.camera.core.Preview;
+import androidx.camera.lifecycle.ProcessCameraProvider;
+import androidx.camera.view.PreviewView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.google.common.util.concurrent.ListenableFuture;
+
+import java.util.concurrent.ExecutionException;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CameraScreen#newInstance} factory method to
@@ -25,6 +44,11 @@ public class CameraScreen extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+    private static final int REQUEST_CAMERA_PERMISSION = 100;
+
+    private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
 
     public CameraScreen() {
         // Required empty public constructor
@@ -68,7 +92,52 @@ public class CameraScreen extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_cameraScreen_to_main_screen);
             }
         });
+
+        // Request camera permission if not granted
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+        } else {
+            startCamera(view);
+        }
+
         // Inflate the layout for this fragment
         return view;
     }
+
+    private void startCamera(View view) {
+        cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext());
+
+        cameraProviderFuture.addListener(() -> {
+            try {
+                ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
+
+                // Set up the preview
+                Preview preview = new Preview.Builder()
+                        .build();
+
+                // Set the output resolution of the preview
+                Size resolution = new Size(720, 1280);
+                preview.setSurfaceProvider(((PreviewView) view.findViewById(R.id.previewView)).getSurfaceProvider());
+
+                // Select the back camera as the default
+                CameraSelector cameraSelector = new CameraSelector.Builder()
+                        .requireLensFacing(CameraSelector.LENS_FACING_BACK)
+                        .build();
+
+                // Unbind any bound camera before binding
+                cameraProvider.unbindAll();
+
+                // Bind the camera to the lifecycle
+                Camera camera = cameraProvider.bindToLifecycle(
+                        this,
+                        cameraSelector,
+                        preview
+                );
+
+            } catch (ExecutionException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        }, ContextCompat.getMainExecutor(requireContext()));
+    }
+
 }
