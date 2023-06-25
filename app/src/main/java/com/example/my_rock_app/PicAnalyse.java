@@ -77,6 +77,14 @@ public class PicAnalyse extends Fragment {
 
             }
         });
+        Button analyse = view.findViewById(R.id.analyse);
+        analyse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_picAnalyse_to_loading);
+
+            }
+        });
         // Inflate the layout for this fragment
         return view;
     }

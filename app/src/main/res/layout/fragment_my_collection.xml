@@ -21,7 +21,8 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#97B3A2"
-            android:text="back"></Button>
+            android:text="<back">
+        </Button>
 
         <TextView
             android:id="@+id/my_collection_text"
