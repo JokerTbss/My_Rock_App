@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PicAnalyse">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#E6DEDE"
+        tools:context=".CreateFolder">
+
+
+        <Button
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginLeft="300dp"
+            android:background="#97B3A2"
+            android:text="Exit"
+            android:textColor="@color/black"></Button>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/analyse"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="100dp"
+        android:text="Analyse" />
+    <Button
+        android:id="@+id/retake_picture"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="170dp"
+        android:text="Retake picture" />
+
+    <RelativeLayout
+        android:layout_width="294dp"
+        android:layout_height="379dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/border"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="31dp"
+
+            android:gravity="center"
+            android:text="Enter folder name"
+            android:textFontWeight="@integer/material_motion_duration_long_1"
+            android:textSize="20sp"></TextView>
+
+    </RelativeLayout>
+
+
+
