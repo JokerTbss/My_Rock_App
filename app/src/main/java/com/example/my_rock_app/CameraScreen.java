@@ -85,6 +85,16 @@ public class CameraScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_camera_screen, container, false);
+        Button test = view.findViewById(R.id.test_icon);
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_cameraScreen_to_picAnalyse);
+
+
+            }
+        });
+
         Button back = view.findViewById(R.id.back_icon2);
         back.setOnClickListener(new View.OnClickListener() {
             @Override

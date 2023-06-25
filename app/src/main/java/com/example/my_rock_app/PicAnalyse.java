@@ -61,8 +61,8 @@ public class PicAnalyse extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_pic_analyse, container, false);
-        Button retun_pic= view.findViewById(R.id.retake_picture);
-        retun_pic.setOnClickListener(new View.OnClickListener() {
+        Button return_pic= view.findViewById(R.id.retake_picture);
+        return_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_picAnalyse_to_cameraScreen);
