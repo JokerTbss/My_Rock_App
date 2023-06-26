@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.camera.core.ImageCapture;
@@ -13,6 +14,7 @@ import androidx.navigation.Navigation;
 
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +40,7 @@ import androidx.core.content.ContextCompat;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -70,6 +73,7 @@ public class CameraScreen extends Fragment {
     private View view;
 
     //test captureImage solution
+    private String mCurrentPhotoPath;
 
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
 
@@ -147,12 +151,14 @@ public class CameraScreen extends Fragment {
         return view;
     }
 
-    private void captureImage() {
+    private void captureImage(){
             long timestamp = System.currentTimeMillis();
 
             ContentValues contentValues = new ContentValues();
             contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, timestamp);
             contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg");
+
+
 
             imageCapture.takePicture(new ImageCapture.OutputFileOptions.Builder(
                         getActivity().getContentResolver(),
