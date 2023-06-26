@@ -1,10 +1,18 @@
 package com.example.my_rock_app;
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.camera.core.ImageCapture;
+import androidx.camera.core.ImageCaptureException;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +22,8 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Size;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +37,13 @@ import androidx.core.content.ContextCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,6 +63,13 @@ public class CameraScreen extends Fragment {
 
 
     private static final int REQUEST_CAMERA_PERMISSION = 100;
+    private static final int REQUEST_STORAGE_PERMISSION = 101;
+
+    private ImageCapture imageCapture;
+
+    private View view;
+
+    //test captureImage solution
 
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
 
@@ -84,13 +107,28 @@ public class CameraScreen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_camera_screen, container, false);
+        view = inflater.inflate(R.layout.fragment_camera_screen, container, false);
         Button test = view.findViewById(R.id.test_icon);
+
+
+        // Request camera permission if not granted
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    REQUEST_STORAGE_PERMISSION);
+
+        } else {
+            startCamera(view);
+        }
+
+
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_cameraScreen_to_picAnalyse);
-
+                //if clicked start imagecapture
+                captureImage();
 
             }
         });
@@ -103,16 +141,49 @@ public class CameraScreen extends Fragment {
             }
         });
 
-        // Request camera permission if not granted
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
-        } else {
-            startCamera(view);
-        }
+
 
         // Inflate the layout for this fragment
         return view;
     }
+
+    private void captureImage() {
+
+            SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
+            File outputfile = new File(getBatchDirectoryName(), mDateFormat.format(new Date()) + ".jpg");
+
+            ImageCapture.OutputFileOptions outputFileOptions =
+                    new ImageCapture.OutputFileOptions.Builder(outputfile).build();
+
+            imageCapture.takePicture(outputFileOptions, ContextCompat.getMainExecutor(requireContext()),
+                    new ImageCapture.OnImageSavedCallback() {
+                        @Override
+                        public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
+                            //Imagecapture successful, handle the saved image
+                            String savedImagePath = outputfile.getAbsolutePath();
+                            ImageView imageView = view.findViewById(R.id.image_view);
+                            imageView.setImageURI(Uri.parse(savedImagePath));
+
+                            Navigation.findNavController(view).navigate(R.id.action_cameraScreen_to_picAnalyse);
+                        }
+
+                        @Override
+                        public void onError(@NonNull ImageCaptureException exception) {
+                            Toast.makeText(requireContext(), "Image could not be saved " + exception.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+    }
+
+    public String getBatchDirectoryName(){
+        String app_folder_path ="";
+        app_folder_path = Environment.getExternalStorageState().toString() + "/images";
+        File dir = new File(app_folder_path);
+        if (!dir.exists() && !dir.mkdirs()){
+            //Toast.makeText(requireContext(),"Error in getBatchDirectoryName()", Toast.LENGTH_LONG).show();
+        }
+        return app_folder_path;
+    }
+
 
     private void startCamera(View view) {
         cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext());
@@ -129,6 +200,10 @@ public class CameraScreen extends Fragment {
                 Size resolution = new Size(720, 1280);
                 preview.setSurfaceProvider(((PreviewView) view.findViewById(R.id.previewView)).getSurfaceProvider());
 
+                //Set up imagecapture
+                imageCapture = new ImageCapture.Builder()
+                        .build();
+
                 // Select the back camera as the default
                 CameraSelector cameraSelector = new CameraSelector.Builder()
                         .requireLensFacing(CameraSelector.LENS_FACING_BACK)
@@ -141,7 +216,8 @@ public class CameraScreen extends Fragment {
                 Camera camera = cameraProvider.bindToLifecycle(
                         this,
                         cameraSelector,
-                        preview
+                        preview,
+                        imageCapture
                 );
 
             } catch (ExecutionException | InterruptedException e) {
