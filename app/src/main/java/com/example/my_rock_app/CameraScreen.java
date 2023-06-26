@@ -148,22 +148,21 @@ public class CameraScreen extends Fragment {
     }
 
     private void captureImage() {
+            long timestamp = System.currentTimeMillis();
 
-            SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
-            File outputfile = new File(getBatchDirectoryName(), mDateFormat.format(new Date()) + ".jpg");
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, timestamp);
+            contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg");
 
-            ImageCapture.OutputFileOptions outputFileOptions =
-                    new ImageCapture.OutputFileOptions.Builder(outputfile).build();
-
-            imageCapture.takePicture(outputFileOptions, ContextCompat.getMainExecutor(requireContext()),
+            imageCapture.takePicture(new ImageCapture.OutputFileOptions.Builder(
+                        getActivity().getContentResolver(),
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        contentValues
+                    ).build(),
+                    ContextCompat.getMainExecutor(requireContext()),
                     new ImageCapture.OnImageSavedCallback() {
                         @Override
                         public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
-                            //Imagecapture successful, handle the saved image
-                            String savedImagePath = outputfile.getAbsolutePath();
-                            ImageView imageView = view.findViewById(R.id.image_view);
-                            imageView.setImageURI(Uri.parse(savedImagePath));
-
                             Navigation.findNavController(view).navigate(R.id.action_cameraScreen_to_picAnalyse);
                         }
 
@@ -174,15 +173,8 @@ public class CameraScreen extends Fragment {
                     });
     }
 
-    public String getBatchDirectoryName(){
-        String app_folder_path ="";
-        app_folder_path = Environment.getExternalStorageState().toString() + "/images";
-        File dir = new File(app_folder_path);
-        if (!dir.exists() && !dir.mkdirs()){
-            //Toast.makeText(requireContext(),"Error in getBatchDirectoryName()", Toast.LENGTH_LONG).show();
-        }
-        return app_folder_path;
-    }
+
+
 
 
     private void startCamera(View view) {
