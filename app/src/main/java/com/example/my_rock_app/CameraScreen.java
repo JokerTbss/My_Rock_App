@@ -12,6 +12,7 @@ import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageCaptureException;
 import androidx.camera.core.ImageProxy;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import android.os.Environment;
@@ -74,10 +75,9 @@ public class CameraScreen extends Fragment {
     private ImageCapture imageCapture;
 
     private View view;
-    private ImageView imageView;
 
-    //test captureImage solution
-    private String mCurrentPhotoPath;
+
+
 
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
 
@@ -116,7 +116,7 @@ public class CameraScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_camera_screen, container, false);
-        imageView = view.findViewById(R.id.image_view);
+
         Button test = view.findViewById(R.id.test_icon);
 
 
@@ -163,24 +163,25 @@ public class CameraScreen extends Fragment {
             contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, timestamp);
             contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg");
 
-            File externalFilesDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-            if (externalFilesDir != null) {
-                File photofile = new File(getActivity().getExternalFilesDir(null), timestamp + ".jpg");
 
                 imageCapture.takePicture(new ImageCapture.OutputFileOptions.Builder(
-                                //getActivity().getContentResolver(),
-                                //MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                                //contentValues
-                                photofile
+                                getActivity().getContentResolver(),
+                                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                                contentValues
                         ).build(),
                         ContextCompat.getMainExecutor(requireContext()),
                         new ImageCapture.OnImageSavedCallback() {
                             @Override
                             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                                 Toast.makeText(requireContext(), "Image has been saved and file has been created", Toast.LENGTH_LONG).show();
-                                loadPhotoIntoImageView(photofile);
-                                Toast.makeText(requireContext(), "Loading Image ImageView worked", Toast.LENGTH_LONG).show();
-                                Navigation.findNavController(view).navigate(R.id.action_cameraScreen_to_picAnalyse);
+                                String imagePath = outputFileResults.getSavedUri().getPath();
+                                Bundle args = new Bundle();
+                                args.putString("imagePath", imagePath);
+                                NavOptions navOptions = new NavOptions.Builder()
+                                        .setPopUpTo(R.id.cameraScreen, true)
+                                        .build();
+                                Navigation.findNavController(view)
+                                        .navigate(R.id.action_cameraScreen_to_picAnalyse, args, navOptions);
                             }
 
                             @Override
@@ -188,20 +189,7 @@ public class CameraScreen extends Fragment {
                                 Toast.makeText(requireContext(), "Image could not be saved " + exception.getMessage(), Toast.LENGTH_LONG).show();
                             }
                         });
-            }else{
-                Toast.makeText(requireContext(), "External storage not available", Toast.LENGTH_LONG).show();
-            }
-    }
 
-    private void loadPhotoIntoImageView(File photoFile) {
-        if (photoFile != null) {
-            Glide.with(this)
-                    .load(photoFile)
-                    .into(imageView);
-        } else {
-            // Handle the case where the photo file is null
-            Toast.makeText(requireContext(), "Photo file is null", Toast.LENGTH_SHORT).show();
-        }
     }
 
 

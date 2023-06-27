@@ -9,6 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+
+import java.io.File;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +66,18 @@ public class PicAnalyse extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_pic_analyse, container, false);
+
+        //implementation for the image captured before
+        ImageView imageView = view.findViewById(R.id.image_view);
+        Bundle args = getArguments();
+        if (args != null && args.containsKey("imagePath")){
+            String imagepath = args.getString("imagePath");
+            if (imagepath != null){
+                File imagefile = new File(imagepath);
+                Glide.with(this).load(imagefile).into(imageView);
+            }
+        }
+
         Button return_pic= view.findViewById(R.id.retake_picture);
         return_pic.setOnClickListener(new View.OnClickListener() {
             @Override
