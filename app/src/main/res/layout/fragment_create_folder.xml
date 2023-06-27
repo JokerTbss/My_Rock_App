@@ -61,7 +61,8 @@
             android:padding="20dp"
             android:textColor="@color/black"
             android:textSize="15dp"
-            tools:ignore="SpeakableTextPresentCheck"></EditText>
+            tools:ignore="SpeakableTextPresentCheck"
+            android:id="@+id/add_folder_text"></EditText>
 
         <TextView
             android:id="@+id/title"

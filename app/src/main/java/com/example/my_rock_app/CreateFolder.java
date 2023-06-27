@@ -55,12 +55,18 @@ public class CreateFolder extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_folder, container, false);
+
+
+
         // Inflate the layout for this fragment
         Button back= view.findViewById(R.id.back_icon1);
         back.setOnClickListener(new View.OnClickListener() {
