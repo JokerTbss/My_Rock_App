@@ -1,5 +1,6 @@
 package com.example.my_rock_app;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -74,7 +76,12 @@ public class PicAnalyse extends Fragment {
             String imagepath = args.getString("imagePath");
             if (imagepath != null){
                 File imagefile = new File(imagepath);
-                Glide.with(this).load(imagefile).into(imageView);
+                try{
+                    imageView.setImageURI(Uri.fromFile(imagefile));}
+                catch(Exception e){
+                    Toast.makeText(requireContext(), "image didn't work", Toast.LENGTH_LONG).show();
+                }
+
             }
         }
 
