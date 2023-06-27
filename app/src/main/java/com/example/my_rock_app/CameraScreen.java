@@ -192,20 +192,6 @@ public class CameraScreen extends Fragment {
 
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == REQUEST_CAMERA_PERMISSION && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED &&
-                requestCode == REQUEST_STORAGE_PERMISSION && grantResults.length > 0 && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-            // Permissions granted, start the camera
-            startCamera(view);
-        } else {
-            // Permission denied, handle accordingly (e.g., show an error message)
-            Toast.makeText(requireContext(), "Camera permission or storage permission denied", Toast.LENGTH_SHORT).show();
-        }
-    }
-
 
 
     public void startCamera(View view) {
