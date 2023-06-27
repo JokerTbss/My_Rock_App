@@ -3,12 +3,14 @@ package com.example.my_rock_app;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageCaptureException;
+import androidx.camera.core.ImageProxy;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -37,6 +39,7 @@ import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.bumptech.glide.Glide;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.File;
@@ -71,6 +74,7 @@ public class CameraScreen extends Fragment {
     private ImageCapture imageCapture;
 
     private View view;
+    private ImageView imageView;
 
     //test captureImage solution
     private String mCurrentPhotoPath;
@@ -112,6 +116,7 @@ public class CameraScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_camera_screen, container, false);
+        imageView = view.findViewById(R.id.image_view);
         Button test = view.findViewById(R.id.test_icon);
 
 
@@ -158,17 +163,21 @@ public class CameraScreen extends Fragment {
             contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, timestamp);
             contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg");
 
-
+            File photofile = new File(getActivity().getExternalFilesDir(null), timestamp + ".jpg");
 
             imageCapture.takePicture(new ImageCapture.OutputFileOptions.Builder(
-                        getActivity().getContentResolver(),
-                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                        contentValues
+                        //getActivity().getContentResolver(),
+                        //MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        //contentValues
+                    photofile
                     ).build(),
                     ContextCompat.getMainExecutor(requireContext()),
                     new ImageCapture.OnImageSavedCallback() {
                         @Override
                         public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
+                            Toast.makeText(requireContext(), "Image has been saved and file has been created", Toast.LENGTH_LONG).show();
+                            loadPhotoIntoImageView(photofile);
+                            Toast.makeText(requireContext(), "Loading Image ImageView worked", Toast.LENGTH_LONG).show();
                             Navigation.findNavController(view).navigate(R.id.action_cameraScreen_to_picAnalyse);
                         }
 
@@ -179,8 +188,11 @@ public class CameraScreen extends Fragment {
                     });
     }
 
-
-
+    private void loadPhotoIntoImageView(File photofile) {
+        Glide.with(requireContext())
+                .load(photofile)
+                .into(imageView);
+    }
 
 
     private void startCamera(View view) {
