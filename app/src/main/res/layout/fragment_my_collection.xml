@@ -44,17 +44,8 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="620dp"></androidx.recyclerview.widget.RecyclerView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_icon_float"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@android:drawable/ic_menu_add"
-        android:layout_marginLeft="300dp"/>
+        android:layout_height="682dp"></androidx.recyclerview.widget.RecyclerView>
 
 
 </LinearLayout>

@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     android:id="@+id/item_root">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="155dp"
-        android:layout_height="82dp"
-        android:layout_weight="1"
-        app:srcCompat="?attr/actionModePasteDrawable" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="82dp"
         android:layout_weight="33.3"
-        android:orientation="horizontal"
-        android:textAlignment="center">
+        tools:ignore="ExtraText">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="155dp"
+            android:layout_height="82dp"
+            android:layout_weight="1"
+            app:scr="drawbale/free_folder" />>
 
         <TextView
-            android:layout_width="252dp"
-            android:layout_height="match_parent"></TextView>
-    </LinearLayout>
+            android:id="@+id/folder_name"
+            android:layout_width="256dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="150dp"
+            android:gravity="center"></TextView>
+    </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>
 
