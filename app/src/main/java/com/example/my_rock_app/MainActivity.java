@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton btnOpenDialog;
 
 
-    @SuppressLint("MissingInflatedId")
+    /*@SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,5 +68,5 @@ public class MainActivity extends AppCompatActivity {
     adapter=new FolderAdapter(this,arrFolder);
     recyclerView.setAdapter(adapter);
 
-    }
+    }*/
 }

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder> {
+/*public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder> {
 
     Context context;
     ArrayList<Object>arrFolder;
@@ -44,4 +44,4 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
 
     public class ViewHolder {
     }
-}
+}*/

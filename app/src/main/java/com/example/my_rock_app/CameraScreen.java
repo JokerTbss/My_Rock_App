@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.nfc.Tag;
 import android.os.Bundle;
 
+import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageCaptureException;
 import androidx.camera.core.ImageProxy;
@@ -80,6 +81,7 @@ public class CameraScreen extends Fragment {
 
 
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
+    private ImageAnalysis imageAnalysis;
 
     public CameraScreen() {
         // Required empty public constructor
@@ -175,13 +177,13 @@ public class CameraScreen extends Fragment {
                             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                                 Toast.makeText(requireContext(), "Image has been saved and file has been created", Toast.LENGTH_LONG).show();
                                 String imagePath = outputFileResults.getSavedUri().getPath();
-                                Bundle args = new Bundle();
-                                args.putString("imagePath", imagePath);
+                                Bundle arg = new Bundle();
+                                arg.putString("imagePath", imagePath);
                                 NavOptions navOptions = new NavOptions.Builder()
                                         .setPopUpTo(R.id.cameraScreen, true)
                                         .build();
                                 Navigation.findNavController(view)
-                                        .navigate(R.id.action_cameraScreen_to_picAnalyse, args, navOptions);
+                                        .navigate(R.id.action_cameraScreen_to_picAnalyse, arg, navOptions);
                             }
 
                             @Override
@@ -213,6 +215,10 @@ public class CameraScreen extends Fragment {
                 imageCapture = new ImageCapture.Builder()
                         .build();
 
+                //Set up ImageAnalysis
+                imageAnalysis = new ImageAnalysis.Builder()
+                        .build();
+
                 // Select the back camera as the default
                 CameraSelector cameraSelector = new CameraSelector.Builder()
                         .requireLensFacing(CameraSelector.LENS_FACING_BACK)
@@ -226,7 +232,8 @@ public class CameraScreen extends Fragment {
                         this,
                         cameraSelector,
                         preview,
-                        imageCapture
+                        imageCapture,
+                        imageAnalysis
                 );
 
             } catch (ExecutionException | InterruptedException e) {

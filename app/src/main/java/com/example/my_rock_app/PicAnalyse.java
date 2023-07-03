@@ -1,9 +1,14 @@
 package com.example.my_rock_app;
 
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.camera.core.ImageAnalysis;
+import androidx.camera.core.ImageProxy;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -22,7 +27,7 @@ import java.io.File;
  * Use the {@link PicAnalyse#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PicAnalyse extends Fragment {
+public class PicAnalyse extends Fragment implements ImageAnalysis.Analyzer {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,6 +37,8 @@ public class PicAnalyse extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    Bundle arg = getArguments();
 
     public PicAnalyse() {
         // Required empty public constructor
@@ -71,9 +78,9 @@ public class PicAnalyse extends Fragment {
 
         //implementation for the image captured before
         ImageView imageView = view.findViewById(R.id.image_view);
-        Bundle args = getArguments();
-        if (args != null && args.containsKey("imagePath")){
-            String imagepath = args.getString("imagePath");
+
+        if (arg != null && arg.containsKey("imagePath")){
+            String imagepath = arg.getString("imagePath");
             if (imagepath != null){
                 File imagefile = new File(imagepath);
                 try{
@@ -93,6 +100,9 @@ public class PicAnalyse extends Fragment {
             }
 
         });
+
+
+
         Button out = view.findViewById(R.id.exit);
         out.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,15 +111,24 @@ public class PicAnalyse extends Fragment {
 
             }
         });
+
+
+
+
         Button analyse = view.findViewById(R.id.analyse);
         analyse.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
                 Navigation.findNavController(view).navigate(R.id.action_picAnalyse_to_loading);
 
             }
         });
         // Inflate the layout for this fragment
         return view;
+    }
+
+    @Override
+    public void analyze(@NonNull ImageProxy imageProxy) {
+        Image images = imageProxy.getImage();
     }
 }
