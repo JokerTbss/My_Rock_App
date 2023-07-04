@@ -81,7 +81,6 @@ public class CameraScreen extends Fragment {
 
 
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
-    private ImageAnalysis imageAnalysis;
 
     public CameraScreen() {
         // Required empty public constructor
@@ -215,14 +214,19 @@ public class CameraScreen extends Fragment {
                 imageCapture = new ImageCapture.Builder()
                         .build();
 
-                //Set up ImageAnalysis
-                imageAnalysis = new ImageAnalysis.Builder()
-                        .build();
 
                 // Select the back camera as the default
                 CameraSelector cameraSelector = new CameraSelector.Builder()
                         .requireLensFacing(CameraSelector.LENS_FACING_BACK)
                         .build();
+
+                //Set up ImageAnalysis
+                ImageAnalysis imageAnalysis = new ImageAnalysis.Builder()
+                        .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                                .build();
+
+                //Set up Analyzer with logical part in a class
+                imageAnalysis.setAnalyzer(ContextCompat.getMainExecutor(requireContext()), new ImageAnalyzer());
 
                 // Unbind any bound camera before binding
                 cameraProvider.unbindAll();
@@ -241,5 +245,7 @@ public class CameraScreen extends Fragment {
             }
         }, ContextCompat.getMainExecutor(requireContext()));
     }
+
+
 
 }

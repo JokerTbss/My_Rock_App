@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_STORAGE_PERMISSION = 101;
     RecyclerView recyclerView;
     FloatingActionButton btnOpenDialog;
+
+    SharedViewModel sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
 
 
     /*@SuppressLint("MissingInflatedId")

@@ -5,9 +5,13 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.camera.core.Camera;
+import androidx.camera.core.CameraX;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
@@ -27,7 +31,7 @@ import java.io.File;
  * Use the {@link PicAnalyse#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PicAnalyse extends Fragment implements ImageAnalysis.Analyzer {
+public class PicAnalyse extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,8 +42,14 @@ public class PicAnalyse extends Fragment implements ImageAnalysis.Analyzer {
     private String mParam1;
     private String mParam2;
 
+
+    //Bundle should get all the image information
     Bundle arg = getArguments();
 
+    //shared data for analysis button to start analysis
+    SharedViewModel sharedViewModel = new ViewModelProvider(getActivity()).get(SharedViewModel.class);
+
+    private ImageAnalysis imageAnalysis;
     public PicAnalyse() {
         // Required empty public constructor
     }
@@ -119,16 +129,12 @@ public class PicAnalyse extends Fragment implements ImageAnalysis.Analyzer {
         analyse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                sharedViewModel.setShouldAnalyze(true);
                 Navigation.findNavController(view).navigate(R.id.action_picAnalyse_to_loading);
 
             }
         });
         // Inflate the layout for this fragment
         return view;
-    }
-
-    @Override
-    public void analyze(@NonNull ImageProxy imageProxy) {
-        Image images = imageProxy.getImage();
     }
 }
