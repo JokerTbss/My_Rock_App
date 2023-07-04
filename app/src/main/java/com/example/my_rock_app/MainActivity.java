@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     FloatingActionButton btnOpenDialog;
 
-    SharedViewModel sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
-
 
     /*@SuppressLint("MissingInflatedId")
     @Override

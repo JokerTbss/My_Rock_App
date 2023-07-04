@@ -46,8 +46,6 @@ public class PicAnalyse extends Fragment {
     //Bundle should get all the image information
     Bundle arg = getArguments();
 
-    //shared data for analysis button to start analysis
-    SharedViewModel sharedViewModel = new ViewModelProvider(getActivity()).get(SharedViewModel.class);
 
     private ImageAnalysis imageAnalysis;
     public PicAnalyse() {
@@ -129,7 +127,7 @@ public class PicAnalyse extends Fragment {
         analyse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                sharedViewModel.setShouldAnalyze(true);
+
                 Navigation.findNavController(view).navigate(R.id.action_picAnalyse_to_loading);
 
             }

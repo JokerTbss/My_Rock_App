@@ -6,10 +6,9 @@ import androidx.camera.core.ImageProxy;
 import androidx.lifecycle.ViewModelProvider;
 
 public class ImageAnalyzer implements ImageAnalysis.Analyzer{
-
-    SharedViewModel sharedViewModel = new ViewModelProvider(this).get()
     @Override
-    public void analyze(@NonNull ImageProxy image) {
-        sharedViewModel.
+    public void analyze(@NonNull ImageProxy imageProxy) {
+
+        imageProxy.close();
     }
 }
