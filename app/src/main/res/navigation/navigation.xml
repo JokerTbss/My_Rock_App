@@ -38,21 +38,23 @@
             android:id="@+id/action_myCollection_to_main_screen"
             app:destination="@id/main_screen" />
         <action
-            android:id="@+id/action_myCollection_to_createFolder"
-            app:destination="@id/createFolder" />
-        <action
-            android:id="@+id/action_myCollection_to_createFolder2"
-            app:destination="@id/createFolder" />
+            android:id="@+id/action_myCollection_to_picturesFragment"
+            app:destination="@id/picturesFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/createFolder"
-        android:name="com.example.my_rock_app.CreateFolder"
-        android:label="fragment_create_folder"
-        tools:layout="@layout/fragment_create_folder" >
+        android:id="@+id/picturesFragment"
+        android:name="com.example.my_rock_app.PicturesFragment"
+        android:label="fragment_pictures"
+        tools:layout="@layout/fragment_pictures" >
         <action
-            android:id="@+id/action_createFolder_to_myCollection"
+            android:id="@+id/action_pictures_to_collection"
             app:destination="@id/myCollection" />
+        <argument
+            android:name="folderName"
+            app:argType="string"/>
     </fragment>
+
     <fragment
         android:id="@+id/picAnalyse"
         android:name="com.example.my_rock_app.PicAnalyse"
@@ -74,3 +76,6 @@
         android:label="activity_loading"
         tools:layout="@layout/activity_loading" />
 </navigation>
+
+
+

@@ -1,9 +1,18 @@
 package com.example.my_rock_app;
 
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.camera.core.Camera;
+import androidx.camera.core.CameraX;
+import androidx.camera.core.ImageAnalysis;
+import androidx.camera.core.ImageProxy;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -33,6 +42,12 @@ public class PicAnalyse extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+    //Bundle should get all the image information
+    Bundle arg = getArguments();
+
+
+    private ImageAnalysis imageAnalysis;
     public PicAnalyse() {
         // Required empty public constructor
     }
@@ -71,9 +86,9 @@ public class PicAnalyse extends Fragment {
 
         //implementation for the image captured before
         ImageView imageView = view.findViewById(R.id.image_view);
-        Bundle args = getArguments();
-        if (args != null && args.containsKey("imagePath")){
-            String imagepath = args.getString("imagePath");
+
+        if (arg != null && arg.containsKey("imagePath")){
+            String imagepath = arg.getString("imagePath");
             if (imagepath != null){
                 File imagefile = new File(imagepath);
                 try{
@@ -93,6 +108,9 @@ public class PicAnalyse extends Fragment {
             }
 
         });
+
+
+
         Button out = view.findViewById(R.id.exit);
         out.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,10 +119,15 @@ public class PicAnalyse extends Fragment {
 
             }
         });
+
+
+
+
         Button analyse = view.findViewById(R.id.analyse);
         analyse.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
+
                 Navigation.findNavController(view).navigate(R.id.action_picAnalyse_to_loading);
 
             }

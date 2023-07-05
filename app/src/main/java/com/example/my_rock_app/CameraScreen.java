@@ -3,13 +3,19 @@ package com.example.my_rock_app;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.media.Image;
+import android.net.ProxyInfo;
 import android.net.Uri;
 import android.nfc.Tag;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.OptIn;
+import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageCaptureException;
+import androidx.camera.core.ImageInfo;
 import androidx.camera.core.ImageProxy;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavOptions;
@@ -76,7 +82,7 @@ public class CameraScreen extends Fragment {
 
     private View view;
 
-
+    private ImageAnalyzer imageAnalyzer;
 
 
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
@@ -174,14 +180,75 @@ public class CameraScreen extends Fragment {
                             @Override
                             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                                 Toast.makeText(requireContext(), "Image has been saved and file has been created", Toast.LENGTH_LONG).show();
+                                //Create path string for bundle
                                 String imagePath = outputFileResults.getSavedUri().getPath();
-                                Bundle args = new Bundle();
-                                args.putString("imagePath", imagePath);
+
+                                //Create ImageProxy instance for the analyze method
+                                ImageProxy imageProxy = new ImageProxy() {
+                                    @Override
+                                    public void close() {
+
+                                    }
+
+                                    @NonNull
+                                    @Override
+                                    public Rect getCropRect() {
+                                        return null;
+                                    }
+
+                                    @Override
+                                    public void setCropRect(@Nullable Rect rect) {
+
+                                    }
+
+                                    @Override
+                                    public int getFormat() {
+                                        return 0;
+                                    }
+
+                                    @Override
+                                    public int getHeight() {
+                                        return 0;
+                                    }
+
+                                    @Override
+                                    public int getWidth() {
+                                        return 0;
+                                    }
+
+                                    @NonNull
+                                    @Override
+                                    public PlaneProxy[] getPlanes() {
+                                        return new PlaneProxy[0];
+                                    }
+
+                                    @NonNull
+                                    @Override
+                                    public ImageInfo getImageInfo() {
+                                        return null;
+                                    }
+
+                                    @OptIn(markerClass = androidx.camera.core.ExperimentalGetImage.class)
+                                    @Nullable
+                                    @Override
+                                    public Image getImage() {
+                                        return null;
+                                    }
+                                };
+
+                                // Pass the captured image to the ImageAnalyzer
+                                imageAnalyzer.analyze(imageProxy);
+
+                                //Create Bundle to pass image to picAnalyse screen
+                                Bundle arg = new Bundle();
+                                arg.putString("imagePath", imagePath);
+
+                                //Navigate to the next screen
                                 NavOptions navOptions = new NavOptions.Builder()
                                         .setPopUpTo(R.id.cameraScreen, true)
                                         .build();
                                 Navigation.findNavController(view)
-                                        .navigate(R.id.action_cameraScreen_to_picAnalyse, args, navOptions);
+                                        .navigate(R.id.action_cameraScreen_to_picAnalyse, arg, navOptions);
                             }
 
                             @Override
@@ -213,10 +280,21 @@ public class CameraScreen extends Fragment {
                 imageCapture = new ImageCapture.Builder()
                         .build();
 
+
                 // Select the back camera as the default
                 CameraSelector cameraSelector = new CameraSelector.Builder()
                         .requireLensFacing(CameraSelector.LENS_FACING_BACK)
                         .build();
+
+                //Set up ImageAnalysis
+                ImageAnalysis imageAnalysis = new ImageAnalysis.Builder()
+                        .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                                .build();
+
+                imageAnalyzer = new ImageAnalyzer();
+
+                //Set up Analyzer with logical part in a class
+                imageAnalysis.setAnalyzer(ContextCompat.getMainExecutor(requireContext()), imageAnalyzer);
 
                 // Unbind any bound camera before binding
                 cameraProvider.unbindAll();
@@ -226,7 +304,8 @@ public class CameraScreen extends Fragment {
                         this,
                         cameraSelector,
                         preview,
-                        imageCapture
+                        imageCapture,
+                        imageAnalysis
                 );
 
             } catch (ExecutionException | InterruptedException e) {
@@ -234,5 +313,7 @@ public class CameraScreen extends Fragment {
             }
         }, ContextCompat.getMainExecutor(requireContext()));
     }
+
+
 
 }
