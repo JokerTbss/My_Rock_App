@@ -18,12 +18,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private Button my_collection;
-
-    private static final int REQUEST_CAMERA_PERMISSION = 100;
-    private static final int REQUEST_STORAGE_PERMISSION = 101;
-    RecyclerView recyclerView;
-    FloatingActionButton btnOpenDialog;
 
 
     @SuppressLint("MissingInflatedId")
