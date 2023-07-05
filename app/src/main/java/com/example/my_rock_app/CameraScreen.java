@@ -84,6 +84,8 @@ public class CameraScreen extends Fragment {
 
     private ImageAnalyzer imageAnalyzer;
 
+    private ImageProxy capturedImageProxy;
+
 
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
 
@@ -142,7 +144,7 @@ public class CameraScreen extends Fragment {
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //if clicked start imagecapture
+                //if clicked start imageCapture
                 captureImage();
 
             }
@@ -183,61 +185,15 @@ public class CameraScreen extends Fragment {
                                 //Create path string for bundle
                                 String imagePath = outputFileResults.getSavedUri().getPath();
 
-                                //Create ImageProxy instance for the analyze method
-                                ImageProxy imageProxy = new ImageProxy() {
-                                    @Override
-                                    public void close() {
-
-                                    }
-
-                                    @NonNull
-                                    @Override
-                                    public Rect getCropRect() {
-                                        return null;
-                                    }
-
-                                    @Override
-                                    public void setCropRect(@Nullable Rect rect) {
-
-                                    }
-
-                                    @Override
-                                    public int getFormat() {
-                                        return 0;
-                                    }
-
-                                    @Override
-                                    public int getHeight() {
-                                        return 0;
-                                    }
-
-                                    @Override
-                                    public int getWidth() {
-                                        return 0;
-                                    }
-
-                                    @NonNull
-                                    @Override
-                                    public PlaneProxy[] getPlanes() {
-                                        return new PlaneProxy[0];
-                                    }
-
-                                    @NonNull
-                                    @Override
-                                    public ImageInfo getImageInfo() {
-                                        return null;
-                                    }
-
-                                    @OptIn(markerClass = androidx.camera.core.ExperimentalGetImage.class)
-                                    @Nullable
-                                    @Override
-                                    public Image getImage() {
-                                        return null;
-                                    }
-                                };
+                                capturedImageProxy = ImageAnalyzer.getLatestProxy();
 
                                 // Pass the captured image to the ImageAnalyzer
-                                imageAnalyzer.analyze(imageProxy);
+                                if (imageAnalyzer != null && capturedImageProxy != null){
+                                    imageAnalyzer.analyze(capturedImageProxy);
+                                    capturedImageProxy.close();
+                                } else {
+                                    Toast.makeText(requireContext(), "capturedImageProxy or imageAnalyzer is null", Toast.LENGTH_LONG).show();
+                                }
 
                                 //Create Bundle to pass image to picAnalyse screen
                                 Bundle arg = new Bundle();
