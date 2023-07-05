@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6DEDE"
+    android:background="@drawable/background1"
     tools:context=".main_screen">
 
     <Button
@@ -11,20 +12,27 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="130dp"
-        android:layout_marginTop="250sp"
-        android:backgroundTint="#97B3A2"
+        android:backgroundTint="#4a2c2a"
         android:text="Take Pictures "
-        android:textSize="25dp"></Button>
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/my_collection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.752"></Button>
 
     <Button
         android:id="@+id/my_collection"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="130dp"
-        android:layout_marginTop="350dp"
-        android:backgroundTint="#97B3A2"
+        android:layout_marginBottom="228dp"
+        android:backgroundTint="#4a2c2a"
         android:text="My collection "
-        android:textSize="25sp"></Button>
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></Button>
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
