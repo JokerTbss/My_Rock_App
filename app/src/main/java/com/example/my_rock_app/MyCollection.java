@@ -31,7 +31,7 @@ import java.util.List;
  * Use the {@link MyCollection#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MyCollection extends Fragment {
+public class  MyCollection extends Fragment {
     private ListView listView;
 
     Button addButton ;
@@ -162,7 +162,6 @@ public class MyCollection extends Fragment {
 
     private List<String> getFolderListFromStorage() {
         List<String> folderList = new ArrayList<>();
-
         // Retrieve the list of folder names from the storage location
         File storageDirectory = getActivity().getFilesDir();
         File[] files = storageDirectory.listFiles();
