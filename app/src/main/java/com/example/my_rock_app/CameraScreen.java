@@ -167,6 +167,7 @@ public class CameraScreen extends Fragment {
     private void captureImage(){
             long timestamp = System.currentTimeMillis();
 
+
             ContentValues contentValues = new ContentValues();
             contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, timestamp);
             contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg");
@@ -183,7 +184,7 @@ public class CameraScreen extends Fragment {
                             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                                 Toast.makeText(requireContext(), "Image has been saved and file has been created", Toast.LENGTH_LONG).show();
                                 //Create path string for bundle
-                                String imagePath = outputFileResults.getSavedUri().getPath();
+                                String imagePath = "/storage/emulated/0/Pictures/" + timestamp + ".jpg";
 
                                 capturedImageProxy = ImageAnalyzer.getLatestProxy();
 

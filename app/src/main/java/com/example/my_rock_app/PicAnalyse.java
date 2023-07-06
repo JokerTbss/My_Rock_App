@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,9 +43,6 @@ public class PicAnalyse extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
-    //Bundle should get all the image information
-    Bundle arg = getArguments();
 
 
     private ImageAnalysis imageAnalysis;
@@ -86,6 +84,8 @@ public class PicAnalyse extends Fragment {
 
         //implementation for the image captured before
         ImageView imageView = view.findViewById(R.id.image_view);
+
+        Bundle arg = getArguments();
 
         if (arg != null && arg.containsKey("imagePath")){
             String imagepath = arg.getString("imagePath");
