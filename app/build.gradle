@@ -29,16 +29,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-
-
-
+    buildFeatures {
+        mlModelBinding true
     }
+
+
+}
 
 dependencies {
     implementation 'androidx.room:room-common:2.5.2'
     implementation 'androidx.room:room-runtime:2.5.2'
     implementation 'com.google.mlkit:vision-common:17.1.0'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.1.0'
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
     annotationProcessor 'androidx.room:room-compiler:2.5.2'
     constraints {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {

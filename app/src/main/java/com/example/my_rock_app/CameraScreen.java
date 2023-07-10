@@ -248,7 +248,7 @@ public class CameraScreen extends Fragment {
                         .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                                 .build();
 
-                imageAnalyzer = new ImageAnalyzer();
+                imageAnalyzer = new ImageAnalyzer(requireContext());
 
                 //Set up Analyzer with logical part in a class
                 imageAnalysis.setAnalyzer(ContextCompat.getMainExecutor(requireContext()), imageAnalyzer);
