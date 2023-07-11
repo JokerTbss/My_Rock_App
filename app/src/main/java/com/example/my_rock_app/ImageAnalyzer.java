@@ -101,7 +101,7 @@ public class ImageAnalyzer implements ImageAnalysis.Analyzer{
                 s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100);
             }
 
-            //confidende is also a TextView in the original code
+            //confidence is also a TextView in the original code
             //confidence.setText(s);
 
             // Releases model resources if no longer used.
