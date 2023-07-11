@@ -39,15 +39,19 @@ public class ImageAnalyzer implements ImageAnalysis.Analyzer{
     @OptIn(markerClass = ExperimentalGetImage.class)
     @Override
     public void  analyze(@NonNull ImageProxy imageProxy) {
-        latestProxy = imageProxy;
+        Image mediaImage = imageProxy.getImage();
+        if (mediaImage != null){
+            InputImage image = InputImage.fromMediaImage(mediaImage, imageProxy.getImageInfo().getRotationDegrees());
+        }
+        //latestProxy = imageProxy;
 
-        Bitmap image = imageProxy.toBitmap();
+        //Bitmap bitImage = mediaImage;
         
         //int dimension = Math.min(image.getWidth(), image.getHeight());
         //image = ThumbnailUtils.extractThumbnail(image, dimension, dimension);
         
-        image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
-        classifyImage(image, context);
+        bitImage = Bitmap.createScaledBitmap(bitImage, imageSize, imageSize, false);
+        classifyImage(bitImage, context);
 
         imageProxy.close();
     }
