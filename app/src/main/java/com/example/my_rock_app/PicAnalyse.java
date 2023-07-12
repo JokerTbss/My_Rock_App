@@ -1,25 +1,9 @@
 package com.example.my_rock_app;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
-import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.camera.core.Camera;
-import androidx.camera.core.CameraX;
-import androidx.camera.core.ImageAnalysis;
-import androidx.camera.core.ImageProxy;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavOptions;
-import androidx.navigation.Navigation;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +11,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavOptions;
+import androidx.navigation.Navigation;
+
 import com.example.my_rock_app.ml.ModelUnquant;
 
 import org.tensorflow.lite.DataType;
@@ -154,7 +141,7 @@ public class PicAnalyse extends Fragment {
                             .setPopUpTo(R.id.picAnalyse, true)
                             .build();
                     Navigation.findNavController(view)
-                            .navigate(R.id.action_picAnalyse_to_loading, arg2, navOptions);
+                            .navigate(R.id.action_picAnalyse_to_rock_analyser, arg2, navOptions);
                 } else {
                     Toast.makeText(requireContext(), "No imagefile found", Toast.LENGTH_LONG).show();
                 }

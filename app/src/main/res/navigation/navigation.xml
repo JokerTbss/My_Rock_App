@@ -67,14 +67,18 @@
             android:id="@+id/action_picAnalyse_to_main_screen"
             app:destination="@id/main_screen" />
         <action
-            android:id="@+id/action_picAnalyse_to_loading"
-            app:destination="@id/loading" />
+            android:id="@+id/action_picAnalyse_to_rock_analyser"
+            app:destination="@id/rock_analyser" />
     </fragment>
     <activity
         android:id="@+id/loading"
         android:name="com.example.my_rock_app.Loading"
         android:label="activity_loading"
         tools:layout="@layout/activity_loading" />
+    <fragment
+        android:id="@+id/rock_analyser"
+        android:name="com.example.my_rock_app.rock_analyser"
+        android:label="rock_analyser" />
 </navigation>
 
 
