@@ -14,4 +14,9 @@
         android:layout_marginBottom="219dp"
         android:layout_centerHorizontal="true"/>
 
+    <TextView
+        android:id="@+id/textview_l"
+        android:layout_width="500dp"
+        android:layout_height="400dp"/>
+
 </RelativeLayout>

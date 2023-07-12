@@ -82,11 +82,6 @@ public class CameraScreen extends Fragment {
 
     private View view;
 
-    private ImageAnalyzer imageAnalyzer;
-
-    private ImageProxy capturedImageProxy;
-
-
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
 
     public CameraScreen() {
@@ -186,16 +181,6 @@ public class CameraScreen extends Fragment {
                                 //Create path string for bundle
                                 String imagePath = "/storage/emulated/0/Pictures/" + timestamp + ".jpg";
 
-                                capturedImageProxy = ImageAnalyzer.getLatestProxy();
-
-                                // Pass the captured image to the ImageAnalyzer
-                                if (imageAnalyzer != null && capturedImageProxy != null){
-                                    imageAnalyzer.analyze(capturedImageProxy);
-                                    capturedImageProxy.close();
-                                } else {
-                                    Toast.makeText(requireContext(), "capturedImageProxy or imageAnalyzer is null", Toast.LENGTH_LONG).show();
-                                }
-
                                 //Create Bundle to pass image to picAnalyse screen
                                 Bundle arg = new Bundle();
                                 arg.putString("imagePath", imagePath);
@@ -221,6 +206,7 @@ public class CameraScreen extends Fragment {
     public void startCamera(View view) {
         cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext());
 
+        try{
         cameraProviderFuture.addListener(() -> {
             try {
                 ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
@@ -248,11 +234,6 @@ public class CameraScreen extends Fragment {
                         .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                                 .build();
 
-                imageAnalyzer = new ImageAnalyzer(requireContext());
-
-                //Set up Analyzer with logical part in a class
-                imageAnalysis.setAnalyzer(ContextCompat.getMainExecutor(requireContext()), imageAnalyzer);
-
                 // Unbind any bound camera before binding
                 cameraProvider.unbindAll();
 
@@ -261,14 +242,19 @@ public class CameraScreen extends Fragment {
                         this,
                         cameraSelector,
                         preview,
-                        imageCapture,
-                        imageAnalysis
+                        imageCapture
                 );
 
             } catch (ExecutionException | InterruptedException e) {
                 e.printStackTrace();
+                Toast.makeText(requireContext(), "cameraX setup failed", Toast.LENGTH_LONG).show();
             }
         }, ContextCompat.getMainExecutor(requireContext()));
+
+        } catch (Exception  e){
+            Toast.makeText(requireContext(), "cameraProvider Problem", Toast.LENGTH_LONG).show();
+        }
+
     }
 
 
