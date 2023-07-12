@@ -217,7 +217,7 @@ public class PicAnalyse extends Fragment {
                 s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100);
             }
 
-            //Toast.makeText(requireContext(), t + s, Toast.LENGTH_LONG).show();
+            Toast.makeText(requireContext(), t + s, Toast.LENGTH_LONG).show();
 
             arg2.putString("results", t + s);
             // Releases model resources if no longer used.
