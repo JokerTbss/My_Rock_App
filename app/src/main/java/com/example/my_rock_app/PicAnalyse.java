@@ -86,12 +86,15 @@ public class PicAnalyse extends Fragment {
         ImageView imageView = view.findViewById(R.id.image_view);
         File imagefile = null;
 
+        arg2 = new Bundle();
+
         Bundle arg = getArguments();
 
         if (arg != null && arg.containsKey("imagePath")){
             String imagepath = arg.getString("imagePath");
             if (imagepath != null){
                 imagefile = new File(imagepath);
+                arg2.putString("imagePath", imagepath);
                 try{
                     imageView.setImageURI(Uri.fromFile(imagefile));}
                 catch(Exception e){
@@ -133,7 +136,7 @@ public class PicAnalyse extends Fragment {
                     Bitmap bitImage = BitmapFactory.decodeFile(finalImagefile.getAbsolutePath());
                     bitImage = Bitmap.createScaledBitmap(bitImage, imageSize, imageSize, false);
 
-                    arg2 = new Bundle();
+
 
                     classifyImage(bitImage);
 
@@ -203,8 +206,6 @@ public class PicAnalyse extends Fragment {
             for (int i = 0; i < classes.length; i++){
                 s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100);
             }
-
-            Toast.makeText(requireContext(), t + s, Toast.LENGTH_LONG).show();
 
             arg2.putString("results", t + s);
             // Releases model resources if no longer used.

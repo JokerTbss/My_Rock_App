@@ -1,11 +1,17 @@
 package com.example.my_rock_app;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+
+import java.io.File;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +28,8 @@ public class rock_analyser extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
 
     public rock_analyser() {
         // Required empty public constructor
@@ -57,7 +65,30 @@ public class rock_analyser extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_rock_analyser, container, false);
+        TextView textView = view.findViewById(R.id.rock_name);
+        ImageView imageView = view.findViewById(R.id.rock_pic);
+
+        Bundle arg2 = getArguments();
+        if (arg2 != null){
+        String t = arg2.getString("results");
+        String s = arg2.getString("imagePath");
+
+        if (s != null){
+            File imagefile = new File(s);
+            try{
+                imageView.setImageURI(Uri.fromFile(imagefile));
+                textView.setText(t);
+            } catch (Exception e){
+                Toast.makeText(requireContext(), "image didn't work", Toast.LENGTH_LONG).show();
+            }
+        }} else {
+            Toast.makeText(requireContext(), "bundle is empty", Toast.LENGTH_LONG).show();
+        }
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rock_analyser, container, false);
+        return view;
     }
 }

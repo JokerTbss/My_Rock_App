@@ -47,7 +47,7 @@
         android:gravity="center">
 
         <ImageView
-            android:id="@+id/rock_name"
+            android:id="@+id/rock_pic"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_alignParentTop="true"
@@ -56,13 +56,14 @@
             android:layout_marginBottom="200dp" />
 
         <TextView
+            android:id="@+id/rock_name"
             android:layout_width="213dp"
-            android:layout_height="47dp"
+            android:layout_height="125dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="350dp"
+            android:layout_marginTop="320dp"
             android:layout_marginEnd="47dp"
             android:gravity=""
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textColor="@color/black"></TextView>
 
 
