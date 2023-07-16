@@ -3,13 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animationCache="false"
+    android:background="@drawable/rockbackground"
     tools:context=".PicAnalyse">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="#E6DEDE"
+        android:backgroundTint="#25171515"
+        android:orientation="horizontal"
         tools:context=".CreateFolder">
 
         <Button
@@ -18,9 +21,10 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginRight="50dp"
-            android:background="#97B3A2"
+            android:background="@drawable/border"
+            android:backgroundTint="#292925"
             android:text="save"
-            android:textColor="@color/black"></Button>
+            android:textColor="@color/white"></Button>
 
         <Button
 
@@ -28,43 +32,48 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="150dp"
-            android:background="#97B3A2"
+            android:background="@drawable/border"
+            android:backgroundTint="#F2292925"
             android:text="Rock properties"
-            android:textColor="@color/black"></Button>
+            android:textColor="@color/white"></Button>
 
 
     </LinearLayout>
 
 
-
     <RelativeLayout
-        android:layout_width="300dp"
-        android:layout_height="500dp"
+        android:layout_width="331dp"
+        android:layout_height="519dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/border"
+        android:backgroundTint="#41C1936B"
         android:gravity="center">
 
         <ImageView
             android:id="@+id/rock_pic"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_width="269dp"
+            android:layout_height="278dp"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="200dp" />
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="197dp"
+            android:background="#0A8E533D" />
 
         <TextView
             android:id="@+id/rock_name"
-            android:layout_width="213dp"
-            android:layout_height="125dp"
+            android:layout_width="251dp"
+            android:layout_height="128dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="320dp"
-            android:layout_marginEnd="47dp"
+            android:layout_marginEnd="7dp"
             android:gravity=""
-            android:textSize="15sp"
-            android:textColor="@color/black"></TextView>
+            android:textColor="@color/white"
+            android:textSize="15sp"></TextView>
 
 
     </RelativeLayout>

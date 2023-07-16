@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/rockbackground"
     tools:context=".PicAnalyse">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="#E6DEDE"
+        android:backgroundTint="#07100F0F"
+        android:orientation="horizontal"
         tools:context=".CreateFolder">
 
 
@@ -18,9 +20,10 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginLeft="300dp"
-            android:background="#97B3A2"
+            android:background="@drawable/border"
+            android:backgroundTint="#200E0D0D"
             android:text="Exit"
-            android:textColor="@color/black"></Button>
+            android:textColor="@color/white"></Button>
     </LinearLayout>
 
     <Button
@@ -29,13 +32,18 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="100dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#3CFFFFFF"
         android:text="Analyse" />
+
     <Button
         android:id="@+id/retake_picture"
         android:layout_width="235dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="170dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#45FFFFFF"
         android:text="Retake picture" />
 
     <RelativeLayout
@@ -44,13 +52,13 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="250dp"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/border"
         android:gravity="center">
+
         <ImageView
             android:id="@+id/image_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_width="263dp"
+            android:layout_height="352dp"
+            android:backgroundTint="#1BFFFFFF" />
     </RelativeLayout>
 
 </RelativeLayout>

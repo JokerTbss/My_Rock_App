@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CameraScreen">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#E6DEDE"
-        android:backgroundTint="#E6DEDE"
+        android:background="@drawable/border"
+        android:backgroundTint="#0F3E3C3C"
         android:orientation="horizontal">
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/back_icon2"
-        android:backgroundTint="#97B3A2"
-        android:text="back"
-        android:textColor="@color/black"></Button>
 
         <Button
+            android:id="@+id/back_icon2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:backgroundTint="#39404342"
+            android:text="back"
+            android:textColor="@color/white"></Button>
+
+        <Button
             android:id="@+id/test_icon"
-            android:backgroundTint="#97B3A2"
-            android:text="test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:textColor="@color/black"></Button>
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#E6DEDE"
-        android:gravity="center_horizontal"
-        android:text="CAMERA"
-        android:textColor="#322F2F" />
+            android:background="@drawable/border"
+            android:backgroundTint="#1E1E201F"
+            android:text="test"
+            android:textColor="@color/white"></Button>
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#273A3838"
+            android:gravity="center_horizontal"
+            android:text="CAMERA"
+            android:textColor="#EFEBEB" />
 
     </LinearLayout>
 
@@ -43,7 +47,8 @@
         android:id="@+id/previewView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="top"
         android:layout_marginTop="@android:dimen/app_icon_size"
-        android:layout_gravity="top" />
+        android:background="@drawable/rockbackground" />
 
 </FrameLayout>
