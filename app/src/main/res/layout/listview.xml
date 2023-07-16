@@ -19,7 +19,7 @@
             android:layout_width="155dp"
             android:layout_height="82dp"
             android:layout_weight="1"
-            android:src="@drawable/free_folder" />>
+             />
 
         <TextView
             android:id="@+id/folder_name"

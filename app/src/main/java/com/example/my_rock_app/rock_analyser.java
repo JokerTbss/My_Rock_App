@@ -1,17 +1,23 @@
 package com.example.my_rock_app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,7 +34,9 @@ public class rock_analyser extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private List<String> PicturesList;
+    private RecyclerView recyclerView1;
+    private FolderAdapter adapter1;
 
 
     public rock_analyser() {
@@ -70,25 +78,72 @@ public class rock_analyser extends Fragment {
         ImageView imageView = view.findViewById(R.id.rock_pic);
 
         Bundle arg2 = getArguments();
-        if (arg2 != null){
-        String t = arg2.getString("results");
-        String s = arg2.getString("imagePath");
+        if (arg2 != null) {
+            String t = arg2.getString("results");
+            String s = arg2.getString("imagePath");
 
-        if (s != null){
-            File imagefile = new File(s);
-            try{
-                imageView.setImageURI(Uri.fromFile(imagefile));
-                textView.setText(t);
-            } catch (Exception e){
-                Toast.makeText(requireContext(), "image didn't work", Toast.LENGTH_LONG).show();
+            if (s != null) {
+                File imagefile = new File(s);
+                try {
+                    imageView.setImageURI(Uri.fromFile(imagefile));
+                    textView.setText(t);
+                } catch (Exception e) {
+                    Toast.makeText(requireContext(), "image didn't work", Toast.LENGTH_LONG).show();
+                }
             }
-        }} else {
+        } else {
             Toast.makeText(requireContext(), "bundle is empty", Toast.LENGTH_LONG).show();
         }
+      //  recyclerView1 = view.findViewById();
+        Button add = view.findViewById(R.id.save_analysed_rock);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+
+                alert.setTitle("Save Picture");
+                alert.setMessage("Enter the name of picture");
+
+                final EditText input = new EditText(getContext());
+                alert.setView(input);
+
+                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String value = input.getText().toString();
+                        PicturesList.add(value);
+                        adapter1.notifyDataSetChanged();
+
+                        // Create the new folder in the storage location
+                        File storageDirectory = getActivity().getFilesDir();
+                        File newFolder = new File(storageDirectory, value);
+                        if (!newFolder.exists()) {
+                            boolean isCreated = newFolder.mkdir();
+                            if (isCreated) {
+                                // Folder created successfully
+                            } else {
+                                // Failed to create folder
+                            }
+                        } else {
+                            // Folder with the same name already exists
+                        }
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Canceled.
+                    }
+                });
+
+                alert.show();
+            }
+        });
 
 
         // Inflate the layout for this fragment
         return view;
     }
+
+
 }
