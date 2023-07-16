@@ -136,9 +136,16 @@ public class PicAnalyse extends Fragment {
                     Bitmap bitImage = BitmapFactory.decodeFile(finalImagefile.getAbsolutePath());
                     bitImage = Bitmap.createScaledBitmap(bitImage, imageSize, imageSize, false);
 
+                    //cropping-parameters for the middle of the picture
+                    int cropSize = 150;
+                    int startX = (bitImage.getWidth() - cropSize)/2;
+                    int startY = (bitImage.getHeight() - cropSize)/2;
 
+                    //cropping the image
+                    Bitmap croppedImage = Bitmap.createBitmap(bitImage, startX, startY, cropSize, cropSize);
+                    Bitmap resizedImage = Bitmap.createScaledBitmap(croppedImage, imageSize, imageSize, false);
 
-                    classifyImage(bitImage);
+                    classifyImage(resizedImage);
 
                     NavOptions navOptions = new NavOptions.Builder()
                             .setPopUpTo(R.id.picAnalyse, true)
@@ -157,10 +164,6 @@ public class PicAnalyse extends Fragment {
     private void classifyImage(Bitmap image) {
         try {
             ModelUnquant model = ModelUnquant.newInstance(requireContext());
-
-            /*int imageSize = Math.min(image.getWidth(), image.getHeight());
-            int [] imagePixels = new int[imageSize * imageSize];
-            image.getPixels(imagePixels, 0, imageSize, 0, 0, imageSize, imageSize);*/
 
 
             // Creates inputs for reference.
@@ -207,7 +210,8 @@ public class PicAnalyse extends Fragment {
                 s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100);
             }
 
-            arg2.putString("results", t + s);
+            arg2.putString("result_maxStone", t);
+            arg2.putString("result_allStones", s);
             // Releases model resources if no longer used.
             model.close();
         } catch (IOException e) {

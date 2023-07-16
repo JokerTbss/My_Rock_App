@@ -79,14 +79,15 @@ public class rock_analyser extends Fragment {
 
         Bundle arg2 = getArguments();
         if (arg2 != null) {
-            String t = arg2.getString("results");
+            String t = arg2.getString("result_maxStone");
+            String a = arg2.getString("result_allStones");
             String s = arg2.getString("imagePath");
 
             if (s != null) {
                 File imagefile = new File(s);
                 try {
                     imageView.setImageURI(Uri.fromFile(imagefile));
-                    textView.setText(t);
+                    textView.setText("This picture shows:  " + t + "\n" + "\n" + a);
                 } catch (Exception e) {
                     Toast.makeText(requireContext(), "image didn't work", Toast.LENGTH_LONG).show();
                 }
