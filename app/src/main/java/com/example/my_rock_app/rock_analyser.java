@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
@@ -140,7 +141,13 @@ public class rock_analyser extends Fragment {
                 alert.show();
             }
         });
-
+        Button back= view.findViewById(R.id.rock_properties);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_marble_properties);
+            }
+        });
 
         // Inflate the layout for this fragment
         return view;

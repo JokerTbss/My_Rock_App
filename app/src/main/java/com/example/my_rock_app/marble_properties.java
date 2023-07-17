@@ -52,6 +52,7 @@ public class marble_properties extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -60,4 +61,7 @@ public class marble_properties extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_marble_properties, container, false);
     }
+
+
+
 }
