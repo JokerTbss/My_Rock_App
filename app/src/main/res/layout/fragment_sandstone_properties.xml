@@ -21,7 +21,6 @@
             android:layout_marginTop="56dp"
             android:gravity="center"
             android:text="Marble  "
-            android:textColor="#D0E4C555"
             android:textSize="30sp"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +40,7 @@
             android:gravity="top|center"
             android:text="\n descriprion\n \nMarble is a metamorphic rock formed when limestone is exposed to high temperatures and pressures.
              \nMarble forms under such conditions because the calcite forming the limestone recrystallises forming a denser rock consisting of roughly equigranular calcite crystals "
-            android:textColor="#EADEDE"
+            android:textColor="#B3A3A3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.361"
             app:layout_constraintStart_toStartOf="parent"

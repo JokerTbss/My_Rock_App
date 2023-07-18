@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link marble_properties#newInstance} factory method to
+ * Use the {@link coal_properties#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class marble_properties extends Fragment {
+public class coal_properties extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,7 +23,7 @@ public class marble_properties extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public marble_properties() {
+    public coal_properties() {
         // Required empty public constructor
     }
 
@@ -36,8 +36,8 @@ public class marble_properties extends Fragment {
      * @return A new instance of fragment marble_properties.
      */
     // TODO: Rename and change types and number of parameters
-    public static marble_properties newInstance(String param1, String param2) {
-        marble_properties fragment = new marble_properties();
+    public static coal_properties newInstance(String param1, String param2) {
+        coal_properties fragment = new coal_properties();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
