@@ -20,7 +20,7 @@
             android:layout_height="52dp"
             android:layout_marginTop="56dp"
             android:gravity="center"
-            android:text="Marble  "
+            android:text="Granite "
             android:textSize="30sp"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,8 +38,7 @@
 
             android:background="@drawable/border_description"
             android:gravity="top|center"
-            android:text="\n descriprion\n \nMarble is a metamorphic rock formed when limestone is exposed to high temperatures and pressures.
-             \nMarble forms under such conditions because the calcite forming the limestone recrystallises forming a denser rock consisting of roughly equigranular calcite crystals "
+            android:text="\n descriprion\n \nGranite is a type of igneous rock that is commonly used in construction and building materials. It is composed of minerals such as feldspar, quartz, and mica, and has several physical and chemical properties that make it a desirable material for various applications."
             android:textColor="#B3A3A3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.361"
@@ -48,8 +47,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout1"
-            android:layout_width="354dp"
-            android:layout_height="327dp"
+            android:layout_width="360dp"
+            android:layout_height="288dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="52dp"
             android:layout_marginEnd="10dp"
@@ -124,7 +123,7 @@
                 android:layout_marginTop="32dp"
                 android:gravity="center"
                 android:lineSpacingExtra="14sp"
-                android:text="38%–42%"
+                android:text="1%-2%%"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -153,7 +152,7 @@
                 android:layout_height="23dp"
                 android:layout_marginTop="24dp"
                 android:gravity="center"
-                android:text=" 2%–4%"
+                android:text=" 11%-14%"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -167,8 +166,8 @@
                 android:layout_height="22dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="36dp"
-                android:text="1.5%–2.5% "
                 android:gravity="center"
+                android:text="1% "
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -176,25 +175,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
             <TextView
-                android:id="@+id/textView2"
-                android:layout_width="98dp"
-                android:layout_height="27dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="30%–32%"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.612"
-                app:layout_constraintStart_toEndOf="@+id/textView14"
-                app:layout_constraintTop_toBottomOf="@+id/textView23" />
-
-            <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="oxides (NaO and MgO)"
                 android:gravity="center"
+                android:text="oxides (NaO and MgO)"
                 android:textColor="#F3C8B4"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -203,20 +189,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="85dp"
-                android:layout_height="36dp"
-                android:layout_marginTop="20dp"
-                android:text="MgCO3"
-                android:gravity="center"
-                android:textColor="#F3C8B4"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.108"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -266,10 +238,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="Metamorphic Rocks"
+                android:text="Igneous Rocks"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.722"
+                app:layout_constraintHorizontal_bias="0.645"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/p_properties" />
 
@@ -292,10 +264,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="White,pink"
+                android:text="Pink-grey"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.581"
+                app:layout_constraintHorizontal_bias="0.575"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
@@ -304,10 +276,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Limestone, dolomite"
+                android:text="quartz, feldspar, mica"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.73"
+                app:layout_constraintHorizontal_bias="0.773"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -358,10 +330,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="medium grained;"
+                android:text="large grained;"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.657"
+                app:layout_constraintHorizontal_bias="0.63"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
@@ -370,22 +342,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Granoblastic, granular"
+                android:text="coarse-grained"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.77"
+                app:layout_constraintHorizontal_bias="0.652"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
             <TextView
                 android:id="@+id/textView25"
-                android:layout_width="85dp"
+                android:layout_width="137dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="20dp"
-                android:text="Massive"
+                android:text="Massive,confining"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.624"
+                app:layout_constraintHorizontal_bias="0.77"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
