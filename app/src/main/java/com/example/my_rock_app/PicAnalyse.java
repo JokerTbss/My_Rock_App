@@ -136,16 +136,7 @@ public class PicAnalyse extends Fragment {
                     Bitmap bitImage = BitmapFactory.decodeFile(finalImagefile.getAbsolutePath());
                     bitImage = Bitmap.createScaledBitmap(bitImage, imageSize, imageSize, false);
 
-                    //cropping-parameters for the middle of the picture
-                    int cropSize = 150;
-                    int startX = (bitImage.getWidth() - cropSize)/2;
-                    int startY = (bitImage.getHeight() - cropSize)/2;
-
-                    //cropping the image
-                    Bitmap croppedImage = Bitmap.createBitmap(bitImage, startX, startY, cropSize, cropSize);
-                    Bitmap resizedImage = Bitmap.createScaledBitmap(croppedImage, imageSize, imageSize, false);
-
-                    classifyImage(resizedImage);
+                    classifyImage(bitImage);
 
                     NavOptions navOptions = new NavOptions.Builder()
                             .setPopUpTo(R.id.picAnalyse, true)
