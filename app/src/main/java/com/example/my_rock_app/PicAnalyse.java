@@ -189,7 +189,7 @@ public class PicAnalyse extends Fragment {
                     maxPos = i;
                 }
             }
-            String [] classes = {"Basalt","Coal", "Granite", "Limestone", "Marble", "Quartzite", "Sandstone"};
+            String [] classes = {"Coal", "Granite", "Limestone", "Marble", "Sandstone"};
 
             String t = "";
             t = classes[maxPos];
