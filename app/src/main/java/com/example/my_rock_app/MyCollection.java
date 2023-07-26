@@ -22,7 +22,11 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,8 +49,14 @@ public class  MyCollection extends Fragment {
     private String mParam1;
     private String mParam2;
     private List<String> folderList;
+    private List<String> imagePathList;
+    private List<String> maxStoneList;
     private RecyclerView recyclerView;
     private FolderAdapter adapter;
+
+    private NavController navController;
+    String s;
+    String t;
 
 
     public MyCollection() {
@@ -90,6 +100,10 @@ public class  MyCollection extends Fragment {
         View view= inflater.inflate(R.layout.fragment_my_collection, container, false);
 
         recyclerView = view.findViewById(list_folder);
+
+        folderList = new ArrayList<>();
+        imagePathList = new ArrayList<>(); // Initialize imagePathList
+        maxStoneList = new ArrayList<>(); // Initialize maxStoneList
 
         // Inflate the layout for this fragment
         Button back= view.findViewById(R.id.back_icon);
@@ -150,14 +164,41 @@ public class  MyCollection extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        // Retrieve the list of folders
+        // Initialize the RecyclerView and the adapter
+        recyclerView = view.findViewById(R.id.list_folder);
         folderList = getFolderListFromStorage();
+        // Initialize the NavController
+        navController = Navigation.findNavController(view);
 
-        NavController navController = Navigation.findNavController(requireView());
-        // Create and set up the RecyclerView adapter
-        adapter = new FolderAdapter(folderList, getActivity(), navController);
+
+
+        // Retrieve the passed argument using the Navigation library
+        Bundle args2 = getArguments();
+        if (args2 != null) {
+            Boolean fromSpecificClass = args2.getBoolean("fromSpecificClass", false);
+            if (fromSpecificClass) {
+                String newFolderName = getArguments().getString("newFolderName");
+                if (newFolderName != null) {
+                    // Add the new folder name to the list and update the adapter
+                    folderList.add(newFolderName);
+
+                }
+
+                // Get the additional data you want to pass to the FolderAdapter
+                s = args2.getString("imagePath");
+                t = args2.getString("maxStone");
+
+                imagePathList.add(s);
+                maxStoneList.add(t);
+
+                saveAdditionalData(newFolderName, s, t);
+            }
+        }
+        // Pass the additional data to the FolderAdapter
+        adapter = new FolderAdapter(folderList, imagePathList, maxStoneList, getActivity(), navController);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
     }
 
     private List<String> getFolderListFromStorage() {
@@ -173,6 +214,57 @@ public class  MyCollection extends Fragment {
             }
         }
 
+        // Read additional data (imagePath and maxStone) from each folder's data.txt file
+        for (String folderName : folderList) {
+            File folder = new File(storageDirectory, folderName);
+            File dataFile = new File(folder, "data.txt");
+            if (dataFile.exists()) {
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new FileReader(dataFile));
+                    String line;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        if (line.startsWith("imagePath:")) {
+                            String imagePath = line.substring("imagePath:".length());
+                            imagePathList.add(imagePath);
+                        } else if (line.startsWith("maxStone:")) {
+                            String maxStone = line.substring("maxStone:".length());
+                            maxStoneList.add(maxStone);
+                        }
+                    }
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
         return folderList;
     }
+
+    private void saveAdditionalData(String folderName, String imagePath, String maxStone) {
+        // Create the new folder in the storage location
+        File storageDirectory = getActivity().getFilesDir();
+        File newFolder = new File(storageDirectory, folderName);
+        if (!newFolder.exists()) {
+            boolean isCreated = newFolder.mkdir();
+            if (isCreated) {
+                // Folder created successfully, now create the file for additional data
+                File dataFile = new File(newFolder, "data.txt");
+                try {
+                    FileWriter fileWriter = new FileWriter(dataFile);
+                    fileWriter.write("imagePath:" + imagePath + "\n");
+                    fileWriter.write("maxStone:" + maxStone + "\n");
+                    fileWriter.flush();
+                    fileWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                // Failed to create folder
+            }
+        } else {
+            // Folder with the same name already exists
+        }
+    }
+
 }

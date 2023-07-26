@@ -23,14 +23,23 @@ import java.util.List;
 
 public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.FolderViewHolder> {
     private List<String> folderList;
+    private List<String> imagePathList;
+    private List<String> maxStoneList;
     Activity activity;
     NavController navController;
+    String s;
+    String t;
 
 
-    public FolderAdapter(List<String> folderList, Activity activity, NavController navController) {
+
+    public FolderAdapter(List<String> folderList, List<String> imagePathList, List<String> maxStoneList, Activity activity, NavController navController) {
         this.folderList = folderList;
+        this.imagePathList = imagePathList;
+        this.maxStoneList = maxStoneList;
         this.activity = activity;
         this.navController = navController;
+
+
     }
 
     @NonNull
@@ -44,6 +53,9 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.FolderView
     public void onBindViewHolder(@NonNull FolderViewHolder holder, int position) {
         String folderName = folderList.get(position);
         holder.folderNameTextView.setText(folderName);
+
+        s = imagePathList.get(position);
+        t = maxStoneList.get(position);
     }
 
     @Override
@@ -71,6 +83,8 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.FolderView
                 public void onClick(View view) {
                     Bundle bundle = new Bundle();
                     bundle.putString("folderName",folderNameTextView.getText().toString());
+                    bundle.putString("imagePath",s);
+                    bundle.putString("maxStone", t);
                     navController.navigate(R.id.action_myCollection_to_picturesFragment, bundle);
                 }
             });

@@ -35,10 +35,16 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ImageView
+        android:id="@+id/listentry_image"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"/>
+
+    <TextView
+        android:id="@+id/listentry_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/list_pictures"/>
+        android:textSize="15sp"/>
 
 
 

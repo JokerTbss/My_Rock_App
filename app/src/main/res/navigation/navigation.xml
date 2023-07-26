@@ -85,6 +85,9 @@
         <action
             android:id="@+id/action_rock_analyser_to_coal_properties"
             app:destination="@+id/coal_properties"/>
+        <action
+            android:id="@+id/action_rock_analyser_to_my_collection"
+            app:destination="@+id/myCollection"/>
     </fragment>
     <fragment
         android:id="@+id/marble_properties"

@@ -41,6 +41,7 @@ public class rock_analyser extends Fragment {
     private FolderAdapter adapter1;
 
     String t;
+    String s;
 
 
     public rock_analyser() {
@@ -87,7 +88,7 @@ public class rock_analyser extends Fragment {
         if (arg2 != null) {
             t = arg2.getString("result_maxStone");
             String a = arg2.getString("result_allStones");
-            String s = arg2.getString("imagePath");
+            s = arg2.getString("imagePath");
 
             if (s != null) {
                 File imagefile = new File(s);
@@ -118,22 +119,18 @@ public class rock_analyser extends Fragment {
                 alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String value = input.getText().toString();
-                        PicturesList.add(value);
-                        adapter1.notifyDataSetChanged();
 
-                        // Create the new folder in the storage location
-                        File storageDirectory = getActivity().getFilesDir();
-                        File newFolder = new File(storageDirectory, value);
-                        if (!newFolder.exists()) {
-                            boolean isCreated = newFolder.mkdir();
-                            if (isCreated) {
-                                // Folder created successfully
-                            } else {
-                                // Failed to create folder
-                            }
-                        } else {
-                            // Folder with the same name already exists
+                        //Navigate back to MyCollection fragment and pass the entered name as an argument
+                        if (!value.isEmpty()) {
+                            // Navigate back to MyCollection fragment and pass the entered name as an argument
+                            Bundle bundle = new Bundle();
+                            bundle.putString("newFolderName", value);
+                            bundle.putString("imagePath", s);
+                            bundle.putBoolean("fromSpecificClass", true);
+                            bundle.putString("maxStone", t);
+                            Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_my_collection, bundle);
                         }
+
                     }
                 });
 
@@ -162,6 +159,7 @@ public class rock_analyser extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
+
 
 
 }
