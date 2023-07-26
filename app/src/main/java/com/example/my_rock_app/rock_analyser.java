@@ -149,9 +149,9 @@ public class rock_analyser extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (t == "Marble"){
+                if (t.equals("Marble")){
                 Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_marble_properties);}
-                if (t == "Coal"){
+                if (t.equals("Coal")){
                     Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_coal_properties);
                 }
 
