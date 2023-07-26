@@ -82,11 +82,18 @@
         <action
             android:id="@+id/action_rock_analyser_to_marble_properties"
             app:destination="@id/marble_properties" />
+        <action
+            android:id="@+id/action_rock_analyser_to_coal_properties"
+            app:destination="@+id/coal_properties"/>
     </fragment>
     <fragment
         android:id="@+id/marble_properties"
         android:name="com.example.my_rock_app.marble_properties"
         android:label="marble_properties" />
+    <fragment
+        android:id="@+id/coal_properties"
+        android:name="com.example.my_rock_app.coal_properties"
+        android:label="coal_properties"/>
 </navigation>
 
 

@@ -39,6 +39,8 @@ public class rock_analyser extends Fragment {
     private RecyclerView recyclerView1;
     private FolderAdapter adapter1;
 
+    String t;
+
 
     public rock_analyser() {
         // Required empty public constructor
@@ -78,9 +80,11 @@ public class rock_analyser extends Fragment {
         TextView textView = view.findViewById(R.id.rock_name);
         ImageView imageView = view.findViewById(R.id.rock_pic);
 
+
+
         Bundle arg2 = getArguments();
         if (arg2 != null) {
-            String t = arg2.getString("result_maxStone");
+            t = arg2.getString("result_maxStone");
             String a = arg2.getString("result_allStones");
             String s = arg2.getString("imagePath");
 
@@ -145,7 +149,12 @@ public class rock_analyser extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_marble_properties);
+                if (t == "Marble"){
+                Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_marble_properties);}
+                if (t == "Coal"){
+                    Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_coal_properties);
+                }
+
             }
         });
 
