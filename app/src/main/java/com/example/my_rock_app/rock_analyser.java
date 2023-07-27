@@ -2,6 +2,7 @@ package com.example.my_rock_app;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -148,9 +149,38 @@ public class rock_analyser extends Fragment {
             @Override
             public void onClick(View v) {
                 if (t.equals("Marble")){
+                   // Intent intent = new Intent(requireActivity(), marble_properties.class);;
+                   // boolean isConditionMet1 = false; // Replace this with your condition or flag
+                  //  intent.putExtra("CONDITION_FLAG", isConditionMet1);
+                    //startActivity(intent);
                 Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_marble_properties);}
                 if (t.equals("Coal")){
+                    Intent intent = new Intent(requireActivity(), coal_properties.class);;
+                    boolean isConditionMet = false; // Replace this with your condition or flag
+                    intent.putExtra("CONDITION_FLAG", isConditionMet);
+                    startActivity(intent);
                     Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_coal_properties);
+                }
+                if (t.equals("Sandstone")){
+                    Intent intent = new Intent(requireActivity(), sandstone_properties.class);;
+                    boolean isConditionMet = false; // Replace this with your condition or flag
+                    intent.putExtra("CONDITION_FLAG", isConditionMet);
+                    startActivity(intent);
+                    Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_sandstone_properties);
+                }
+                if (t.equals("Limestone")){
+                    Intent intent = new Intent(requireActivity(), limestone_properties.class);;
+                    boolean isConditionMet = false; // Replace this with your condition or flag
+                    intent.putExtra("CONDITION_FLAG", isConditionMet);
+                    startActivity(intent);
+                    Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_limestone_properties);
+                }
+                if (t.equals("Granite")){
+                    Intent intent = new Intent(requireActivity(), granite_properties.class);;
+                    boolean isConditionMet = false; // Replace this with your condition or flag
+                    intent.putExtra("CONDITION_FLAG", isConditionMet);
+                    startActivity(intent);
+                    Navigation.findNavController(view).navigate(R.id.action_rock_analyser_to_granite_properties);
                 }
 
             }

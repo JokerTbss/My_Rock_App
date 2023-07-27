@@ -1,6 +1,6 @@
 package com.example.my_rock_app;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
@@ -65,15 +63,54 @@ public class PicturesFragment extends Fragment {
             }
         }
 
-
         // Inflate the layout for this fragment
-        Button back= view.findViewById(R.id.back_icon);
+        Button back = view.findViewById(R.id.back_icon);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_pictures_to_collection);
             }
         });
+        Button rock_prop= view.findViewById(R.id.prop_icon);
+        rock_prop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (t.equals("Marble")){
+                    Intent intent = new Intent(requireActivity(), marble_properties.class);;
+                    boolean isConditionMet1 = true; // Replace this with your condition or flag
+                    intent.putExtra("CONDITION_FLAG", isConditionMet1);
+                    startActivity(intent);
+                    Navigation.findNavController(view).navigate(R.id.action_picturesFragment_to_marble_properties);}
+                if (t.equals("Coal")){
+                    Intent intent = new Intent(requireActivity(), coal_properties.class);;
+                    boolean isConditionMet = true; // Replace this with your condition or flag
+                    intent.putExtra("CONDITION_FLAG", isConditionMet);
+                    startActivity(intent);
+                    Navigation.findNavController(view).navigate(R.id.action_picturesFragment_to_coal_properties);
+                }
+                if (t.equals("Sandstone")){
+                    Intent intent = new Intent(requireActivity(), sandstone_properties.class);;
+                    boolean isConditionMet = true; // Replace this with your condition or flag
+                    intent.putExtra("CONDITION_FLAG", isConditionMet);
+                    startActivity(intent);
+                    Navigation.findNavController(view).navigate(R.id.action_picturesFragment_to_coal_properties);
+                }
+                if (t.equals("Limestone")){
+                    Intent intent = new Intent(requireActivity(), limestone_properties.class);;
+                    boolean isConditionMet = true; // Replace this with your condition or flag
+                    intent.putExtra("CONDITION_FLAG", isConditionMet);
+                    startActivity(intent);
+                    Navigation.findNavController(view).navigate(R.id.action_picturesFragment_to_limestone_properties);
+                }
+                if (t.equals("Granite")){
+                    Intent intent = new Intent(requireActivity(), granite_properties.class);;
+                    boolean isConditionMet = true; // Replace this with your condition or flag
+                    intent.putExtra("CONDITION_FLAG", isConditionMet);
+                    startActivity(intent);
+                    Navigation.findNavController(view).navigate(R.id.action_picturesFragment_to_granite_properties);
+                }
+
+            }});
 
         return view;
     }

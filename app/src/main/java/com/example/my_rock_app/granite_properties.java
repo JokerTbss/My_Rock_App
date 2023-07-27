@@ -11,10 +11,10 @@ import androidx.navigation.Navigation;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link marble_properties#newInstance} factory method to
+ * Use the {@link granite_properties#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class marble_properties extends Fragment {
+public class granite_properties extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,7 +25,7 @@ public class marble_properties extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public marble_properties() {
+    public granite_properties() {
         // Required empty public constructor
     }
 
@@ -35,11 +35,11 @@ public class marble_properties extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment marble_properties.
+     * @return A new instance of fragment granite_properties.
      */
     // TODO: Rename and change types and number of parameters
-    public static marble_properties newInstance(String param1, String param2) {
-        marble_properties fragment = new marble_properties();
+    public static granite_properties newInstance(String param1, String param2) {
+        granite_properties fragment = new granite_properties();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -54,35 +54,28 @@ public class marble_properties extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_marble_properties, container, false);
-        Button back= view.findViewById(R.id.marble_back);
-        boolean isConditionMet1 = getActivity().getIntent().getBooleanExtra("CONDITION_FLAG", false);
+        View view= inflater.inflate(R.layout.fragment_granite_properties2, container, false);
+        Button back= view.findViewById(R.id.granite_back);
+        boolean isConditionMet = getActivity().getIntent().getBooleanExtra("CONDITION_FLAG", false);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isConditionMet1) {
-                    Navigation.findNavController(view).navigate(R.id.action_marble_properties_to_picturesFragment);
+                if (isConditionMet) {
+                    Navigation.findNavController(view).navigate(R.id.action_granite_properties_to_picturesFragment);
 
                 } else {
-                    Navigation.findNavController(view).navigate(R.id.action_marble_properties_to_rock_analyser);
+                    Navigation.findNavController(view).navigate(R.id.action_granite_properties_to_rock_analyser);
 
                 }
             }
         });
-
         // Inflate the layout for this fragment
-        return view;
+        return view ;
     }
-
-
-
-
 }

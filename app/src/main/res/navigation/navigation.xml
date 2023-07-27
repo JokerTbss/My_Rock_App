@@ -53,6 +53,21 @@
         <argument
             android:name="folderName"
             app:argType="string"/>
+        <action
+            android:id="@+id/action_picturesFragment_to_marble_properties"
+            app:destination="@id/marble_properties" />
+        <action
+            android:id="@+id/action_picturesFragment_to_coal_properties"
+            app:destination="@id/coal_properties" />
+        <action
+            android:id="@+id/action_picturesFragment_to_sandstone_properties"
+            app:destination="@id/sandstone_properties" />
+        <action
+            android:id="@+id/action_picturesFragment_to_granite_properties"
+            app:destination="@id/granite_properties" />
+        <action
+            android:id="@+id/action_picturesFragment_to_limestone_properties"
+            app:destination="@id/limestone_properties" />
     </fragment>
 
     <fragment
@@ -88,15 +103,68 @@
         <action
             android:id="@+id/action_rock_analyser_to_my_collection"
             app:destination="@+id/myCollection"/>
+        <action
+            android:id="@+id/action_rock_analyser_to_sandstone_properties"
+            app:destination="@id/sandstone_properties" />
+        <action
+            android:id="@+id/action_rock_analyser_to_granite_properties"
+            app:destination="@id/granite_properties" />
+        <action
+            android:id="@+id/action_rock_analyser_to_limestone_properties"
+            app:destination="@id/limestone_properties" />
     </fragment>
     <fragment
         android:id="@+id/marble_properties"
         android:name="com.example.my_rock_app.marble_properties"
-        android:label="marble_properties" />
+        android:label="marble_properties" >
+        <action
+            android:id="@+id/action_marble_properties_to_picturesFragment"
+            app:destination="@id/picturesFragment" />
+        <action
+            android:id="@+id/action_marble_properties_to_rock_analyser"
+            app:destination="@id/rock_analyser" />
+    </fragment>
     <fragment
         android:id="@+id/coal_properties"
         android:name="com.example.my_rock_app.coal_properties"
-        android:label="coal_properties"/>
+        android:label="coal_properties">
+        <action
+            android:id="@+id/action_coal_properties_to_picturesFragment"
+            app:destination="@id/picturesFragment" />
+        <action
+            android:id="@+id/action_coal_properties_to_rock_analyser"
+            app:destination="@id/rock_analyser" />
+    </fragment>
+    <fragment
+        android:id="@+id/sandstone_properties"
+        android:name="com.example.my_rock_app.sandstone_properties"
+        android:label="sandstone_properties" >
+        <action
+            android:id="@+id/action_sandstone_properties_to_picturesFragment"
+            app:destination="@id/picturesFragment" />
+        <action
+            android:id="@+id/action_sandstone_properties_to_rock_analyser"
+            app:destination="@id/rock_analyser" />
+    </fragment>
+    <fragment
+        android:id="@+id/granite_properties"
+        android:name="com.example.my_rock_app.granite_properties"
+        android:label="granite_properties" >
+        <action
+            android:id="@+id/action_granite_properties_to_picturesFragment"
+            app:destination="@id/picturesFragment" />
+        <action
+            android:id="@+id/action_granite_properties_to_rock_analyser"
+            app:destination="@id/rock_analyser" />
+    </fragment>
+    <fragment
+        android:id="@+id/limestone_properties"
+        android:name="com.example.my_rock_app.limestone_properties"
+        android:label="limestone_properties" >
+        <action
+            android:id="@+id/action_limestone_properties_to_picturesFragment"
+            app:destination="@id/picturesFragment" />
+    </fragment>
 </navigation>
 
 
