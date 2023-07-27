@@ -40,7 +40,7 @@
             android:background="@drawable/border_description"
             android:gravity="top|center"
             android:text="\n descriprion\n \nLimestone is a sedimentary rock such as greater than 50% calcium carbonate ( calcite – CaCO3). \n  There are many exceptional kinds of limestone formed thru a ramification of tactics.\n It may be precipitated from water, secreted by using marine organisms including algae and coral (biochemical limestone), or can shape from the shells of lifeless sea creatures (bioclastic limestone)"
-            android:textColor="#B3A3A3"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.352"
             app:layout_constraintStart_toStartOf="parent"
@@ -222,8 +222,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/b8"
-            android:layout_width="359dp"
-            android:layout_height="316dp"
+            android:layout_width="353dp"
+            android:layout_height="271dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
