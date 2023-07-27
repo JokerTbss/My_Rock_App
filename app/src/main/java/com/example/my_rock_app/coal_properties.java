@@ -61,7 +61,7 @@ public class coal_properties extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_marble_properties, container, false);
+        return inflater.inflate(R.layout.fragment_coal_properties, container, false);
     }
 
 

@@ -83,7 +83,7 @@ public class PicturesFragment extends Fragment {
                 }
                 if (t.equals("Sandstone")){
 
-                    Navigation.findNavController(view).navigate(R.id.action_picturesFragment_to_coal_properties);
+                    Navigation.findNavController(view).navigate(R.id.action_picturesFragment_to_sandstone_properties);
                 }
                 if (t.equals("Limestone")){
 
@@ -97,15 +97,6 @@ public class PicturesFragment extends Fragment {
             }});
 
         return view;
-    }
-
-    private List<String> getPictureListFromFolder(String folderName) {
-        List<String> pictureList = new ArrayList<>();
-
-        // Implement your logic to retrieve the list of pictures from the specified folder
-        // Use the folder name to access the pictures in the storage location
-
-        return pictureList;
     }
 }
 
