@@ -18,11 +18,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class PicturesFragment extends Fragment {
     private static final String ARG_FOLDER_NAME = "folderName";
 
     private List<String> pictureList;
     private RecyclerView recyclerView;
+    private ImageView imageView;
+    private TextView textView;
 
     public static PicturesFragment newInstance(String folderName) {
         PicturesFragment fragment = new PicturesFragment();
@@ -35,8 +38,8 @@ public class PicturesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pictures, container, false);
-        ImageView imageView = view.findViewById(R.id.listentry_image);
-        TextView textView = view.findViewById(R.id.listentry_text);
+        imageView = view.findViewById(R.id.listentry_image);
+        textView = view.findViewById(R.id.listentry_text);
 
         // Retrieve the folder name from the arguments
         String folderName = getArguments().getString(ARG_FOLDER_NAME);

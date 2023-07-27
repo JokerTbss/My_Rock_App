@@ -154,6 +154,7 @@ public class  MyCollection extends Fragment {
     }
 
     private List<String> getFolderListFromStorage() {
+
         List<String> folderList = new ArrayList<>();
         // Retrieve the list of folder names from the storage location
         File storageDirectory = getActivity().getFilesDir();
@@ -162,35 +163,39 @@ public class  MyCollection extends Fragment {
             for (File file : files) {
                 if (file.isDirectory()) {
                     folderList.add(file.getName());
-                }
-            }
-        }
 
-        // Read additional data (imagePath and maxStone) from each folder's data.txt file
-        for (String folderName : folderList) {
-            File folder = new File(storageDirectory, folderName);
-            File dataFile = new File(folder, "data.txt");
-            if (dataFile.exists()) {
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new FileReader(dataFile));
-                    String line;
-                    while ((line = bufferedReader.readLine()) != null) {
-                        if (line.startsWith("imagePath:")) {
-                            String imagePath = line.substring("imagePath:".length());
+                    // Read additional data (imagePath and maxStone) from each folder's data.txt file
+                    File dataFile = new File(file, "data.txt");
+                    if (dataFile.exists()) {
+                        try {
+                            BufferedReader bufferedReader = new BufferedReader(new FileReader(dataFile));
+                            String line;
+                            String imagePath = null;
+                            String maxStone = null;
+
+                            while ((line = bufferedReader.readLine()) != null) {
+                                if (line.startsWith("imagePath:")) {
+                                    imagePath = line.substring("imagePath:".length());
+                                } else if (line.startsWith("maxStone:")) {
+                                    maxStone = line.substring("maxStone:".length());
+                                }
+                            }
+
+                            bufferedReader.close();
+
+                            // Add the retrieved imagePath and maxStone to the corresponding lists
                             imagePathList.add(imagePath);
-                        } else if (line.startsWith("maxStone:")) {
-                            String maxStone = line.substring("maxStone:".length());
                             maxStoneList.add(maxStone);
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }
-                    bufferedReader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
             }
         }
 
         return folderList;
+
     }
 
     private void saveAdditionalData(String folderName, String imagePath, String maxStone) {

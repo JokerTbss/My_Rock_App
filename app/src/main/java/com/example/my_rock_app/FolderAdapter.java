@@ -30,6 +30,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.FolderView
     String s;
     String t;
 
+    // Interface to handle item clicks
 
 
     public FolderAdapter(List<String> folderList, List<String> imagePathList, List<String> maxStoneList, Activity activity, NavController navController) {
@@ -38,6 +39,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.FolderView
         this.maxStoneList = maxStoneList;
         this.activity = activity;
         this.navController = navController;
+
 
 
     }
@@ -54,8 +56,20 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.FolderView
         String folderName = folderList.get(position);
         holder.folderNameTextView.setText(folderName);
 
-        s = imagePathList.get(position);
-        t = maxStoneList.get(position);
+        String imagePath = imagePathList.get(position);
+        String maxStone = maxStoneList.get(position);
+
+        // Add click listener to navigate to PicturesFragment
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("folderName", folderName);
+                bundle.putString("imagePath", imagePath);
+                bundle.putString("maxStone", maxStone);
+                navController.navigate(R.id.action_myCollection_to_picturesFragment, bundle);
+            }
+        });
     }
 
     @Override
