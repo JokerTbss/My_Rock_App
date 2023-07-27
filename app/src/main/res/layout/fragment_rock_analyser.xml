@@ -10,8 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#E6DEDE"
-        android:backgroundTint="#25171515"
+        android:background="#00E6DEDE"
         android:orientation="horizontal"
         tools:context=".CreateFolder">
 
@@ -22,7 +21,7 @@
             android:layout_height="48dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/border"
-            android:backgroundTint="#292925"
+            android:backgroundTint="#74756F6F"
             android:text="save"
             android:textColor="@color/white"></Button>
 
@@ -33,7 +32,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="150dp"
             android:background="@drawable/border"
-            android:backgroundTint="#F2292925"
+            android:backgroundTint="#74756F6F"
             android:text="Rock properties"
             android:textColor="@color/white"></Button>
 

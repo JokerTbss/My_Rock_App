@@ -21,7 +21,7 @@
             android:layout_height="48dp"
             android:layout_marginLeft="300dp"
             android:background="@drawable/border"
-            android:backgroundTint="#200E0D0D"
+            android:backgroundTint="#74756F6F"
             android:text="Exit"
             android:textColor="@color/white"></Button>
     </LinearLayout>

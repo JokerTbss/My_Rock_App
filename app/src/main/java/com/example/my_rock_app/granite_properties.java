@@ -4,10 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,21 +58,8 @@ public class granite_properties extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_granite_properties2, container, false);
-        Button back= view.findViewById(R.id.granite_back);
-        boolean isConditionMet = getActivity().getIntent().getBooleanExtra("CONDITION_FLAG", false);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isConditionMet) {
-                    Navigation.findNavController(view).navigate(R.id.action_granite_properties_to_picturesFragment);
 
-                } else {
-                    Navigation.findNavController(view).navigate(R.id.action_granite_properties_to_rock_analyser);
-
-                }
-            }
-        });
         // Inflate the layout for this fragment
         return view ;
     }

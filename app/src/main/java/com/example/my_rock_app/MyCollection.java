@@ -2,16 +2,11 @@ package com.example.my_rock_app;
 
 import static com.example.my_rock_app.R.id.list_folder;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -113,50 +108,7 @@ public class  MyCollection extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_myCollection_to_main_screen);
             }
         });
-        Button add = view.findViewById(R.id.add_icon);
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
-
-                alert.setTitle("Create New Folder");
-                alert.setMessage("Enter the name of the folder");
-
-                final EditText input = new EditText(getContext());
-                alert.setView(input);
-
-                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        String value = input.getText().toString();
-                        folderList.add(value);
-                        adapter.notifyDataSetChanged();
-
-                        // Create the new folder in the storage location
-                        File storageDirectory = getActivity().getFilesDir();
-                        File newFolder = new File(storageDirectory, value);
-                        if (!newFolder.exists()) {
-                            boolean isCreated = newFolder.mkdir();
-                            if (isCreated) {
-                                // Folder created successfully
-                            } else {
-                                // Failed to create folder
-                            }
-                        } else {
-                            // Folder with the same name already exists
-                        }
-                    }
-                });
-
-                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        // Canceled.
-                    }
-                });
-
-                alert.show();
-            }
-        });
         return view;
 
     }

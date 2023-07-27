@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/rockbackground"
     tools:context=".MyCollection">
 
     <LinearLayout
@@ -21,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
+            android:backgroundTint="#74756F6F"
             android:text="back"
             android:textColor="@color/white"></Button>
 
@@ -28,30 +30,22 @@
             android:id="@+id/my_collection_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_marginLeft="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70dp"
             android:gravity="center"
             android:text="MY COLLECTION"
-            android:textColor="#716666"
-            android:textSize="15sp"></TextView>
+            android:textColor="#D8D1D1"
+            android:textSize="15sp"
+            android:textStyle="italic"></TextView>
 
-        <Button
-            android:id="@+id/add_icon"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:background="@drawable/border"
-            android:backgroundTint="#2A656766"
-            android:text="add"
-            android:textColor="@color/white"></Button>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_folder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="655dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/rockbackground" />
-
 
 
 </LinearLayout>

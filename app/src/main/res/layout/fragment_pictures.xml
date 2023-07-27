@@ -20,41 +20,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
-            android:backgroundTint="#404542"
+            android:backgroundTint="#74756F6F"
             android:text="back"></Button>
 
         <TextView
             android:id="@+id/my_collection_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="34dp"
             android:layout_gravity="top"
             android:layout_marginLeft="40dp"
             android:gravity="center"
             android:text="MY COLLECTION"
-            android:textColor="#716666"
-            android:textSize="15sp"></TextView>
+            android:textColor="#D3C8C8"
+            android:textSize="15sp"
+            android:textStyle="bold"></TextView>
 
         <Button
             android:id="@+id/prop_icon"
             android:layout_width="147dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/border"
-            android:backgroundTint="#8B918E"
-            android:text="Rock_properties"
-            android:layout_marginLeft="20dp"></Button>
+            android:backgroundTint="#74756F6F"
+            android:text="Rock properties"></Button>
 
     </LinearLayout>
 
     <ImageView
         android:id="@+id/listentry_image"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"/>
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/border_description" />
 
     <TextView
         android:id="@+id/listentry_text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="15sp"/>
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:textAlignment="center"
+        android:textColor="#A3FF9800"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 
 

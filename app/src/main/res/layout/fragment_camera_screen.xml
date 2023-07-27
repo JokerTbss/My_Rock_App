@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/rockbackground"
     tools:context=".CameraScreen">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border"
-        android:backgroundTint="#0F3E3C3C"
+        android:backgroundTint="#03DDD7D7"
         android:orientation="horizontal">
 
         <Button
@@ -18,27 +19,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
-            android:backgroundTint="#39404342"
+            android:backgroundTint="#74756F6F"
             android:text="back"
             android:textColor="@color/white"></Button>
 
         <Button
             android:id="@+id/test_icon"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="180dp"
             android:background="@drawable/border"
-            android:backgroundTint="#1E1E201F"
-            android:text="test"
+            android:backgroundTint="#74756F6F"
+            android:text="take picture"
             android:textColor="@color/white"></Button>
         <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#273A3838"
-            android:gravity="center_horizontal"
-            android:text="CAMERA"
-            android:textColor="#EFEBEB" />
 
     </LinearLayout>
 
