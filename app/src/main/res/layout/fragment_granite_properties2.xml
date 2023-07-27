@@ -61,141 +61,135 @@
             tools:ignore="DuplicateIds">
 
             <TextView
-                android:id="@+id/p_properties"
+                android:id="@+id/g_properties"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:text="Chemical properties"
                 android:textColor="#BC4C1010"
                 android:textSize="25sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="69dp" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/gtextView5"
                 android:layout_width="79dp"
                 android:layout_height="23dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="88dp"
                 android:text="lime (CaO"
                 android:textColor="#F3C8B4"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.108"
+                app:layout_constraintEnd_toStartOf="@+id/gtextView21"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/p_properties" />
+                app:layout_constraintTop_toBottomOf="@+id/g_properties" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/gtextView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="92dp"
                 android:text="silica (SiO2)"
                 android:textColor="#F3C8B4"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.108"
+                app:layout_constraintEnd_toStartOf="@+id/gtextView24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/gtextView5" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/gtextView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="34dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="60dp"
                 android:text="alumina (Al2O3)"
                 android:textColor="#F3C8B4"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.108"
+                app:layout_constraintEnd_toStartOf="@+id/gtextView25"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/gtextView6" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/gtextView21"
                 android:layout_width="84dp"
                 android:layout_height="18dp"
-                android:layout_marginStart="88dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="78dp"
                 android:gravity="center"
                 android:lineSpacingExtra="14sp"
                 android:text="1%-2%%"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView5"
-                app:layout_constraintTop_toBottomOf="@+id/p_properties"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/g_properties" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/gtextView24"
                 android:layout_width="80dp"
                 android:layout_height="22dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="76dp"
                 android:text="20%–25%"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.551"
-                app:layout_constraintStart_toEndOf="@+id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/textView21"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/gtextView21" />
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/gtextView25"
                 android:layout_width="75dp"
                 android:layout_height="23dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="82dp"
                 android:gravity="center"
                 android:text=" 11%-14%"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.454"
-                app:layout_constraintStart_toEndOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                app:layout_constraintTop_toBottomOf="@+id/gtextView24" />
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/gtextView23"
                 android:layout_width="89dp"
                 android:layout_height="22dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="36dp"
+                android:layout_marginEnd="66dp"
                 android:gravity="center"
                 android:text="1% "
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView13"
-                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+                app:layout_constraintTop_toBottomOf="@+id/gtextView25" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/gtextView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 android:gravity="center"
                 android:text="oxides (NaO and MgO)"
                 android:textColor="#F3C8B4"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.108"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintEnd_toStartOf="@+id/gtextView23"
+                app:layout_constraintTop_toBottomOf="@+id/gtextView7" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/b8"
-            android:layout_width="359dp"
-            android:layout_height="316dp"
+            android:layout_width="355dp"
+            android:layout_height="358dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
@@ -207,47 +201,44 @@
 
 
             <TextView
-                android:id="@+id/p_properties"
+                android:id="@+id/pg_properties"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:text="Physical properties"
                 android:textColor="#BC4C1010"
                 android:textSize="25sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="73dp" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/pgtextView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="30dp"
                 android:text="Group::"
                 android:textColor="#F3C8B4"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.101"
+                app:layout_constraintEnd_toStartOf="@+id/pgtextView16"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/p_properties" />
+                app:layout_constraintTop_toBottomOf="@+id/pg_properties" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/pgtextView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="90dp"
                 android:text="Igneous Rocks"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.645"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/p_properties" />
+                app:layout_constraintTop_toBottomOf="@+id/pg_properties" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/pgtextView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -255,37 +246,34 @@
                 android:textColor="#F3C8B4"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.108"
+                app:layout_constraintEnd_toStartOf="@+id/pgtextView17"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/pgtextView5" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/pgtextView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="122dp"
                 android:text="Pink-grey"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.575"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                app:layout_constraintTop_toBottomOf="@+id/pgtextView17" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/pgtextView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="46dp"
                 android:text="quartz, feldspar, mica"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.773"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                app:layout_constraintTop_toBottomOf="@+id/pgtextView16" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/pgtextView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -293,13 +281,12 @@
                 android:textColor="#F3C8B4"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.105"
+                app:layout_constraintEnd_toStartOf="@+id/pgtextView20"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/pgtextView6" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/pgtextView12"
                 android:layout_width="62dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="20dp"
@@ -307,13 +294,12 @@
                 android:textColor="#F3C8B4"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.108"
+                app:layout_constraintEnd_toStartOf="@+id/pgtextView25"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                app:layout_constraintTop_toBottomOf="@+id/pgtextView14" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/pgtextView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -321,49 +307,45 @@
                 android:textColor="#F3C8B4"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.108"
+                app:layout_constraintEnd_toStartOf="@+id/pgtextView21"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintTop_toBottomOf="@+id/pgtextView7" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/pgtextView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="96dp"
                 android:text="large grained;"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.63"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                app:layout_constraintTop_toBottomOf="@+id/pgtextView20" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/pgtextView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="86dp"
                 android:text="coarse-grained"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.652"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                app:layout_constraintTop_toBottomOf="@+id/pgtextView21" />
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/pgtextView25"
                 android:layout_width="137dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="47dp"
                 android:text="Massive,confining"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.77"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                app:layout_constraintTop_toBottomOf="@+id/pgtextView24" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/pgtextView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -371,10 +353,9 @@
                 android:textColor="#F3C8B4"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.108"
+                app:layout_constraintEnd_toStartOf="@+id/pgtextView24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                app:layout_constraintTop_toBottomOf="@+id/pgtextView13" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -61,7 +61,7 @@
             tools:ignore="DuplicateIds">
 
             <TextView
-                android:id="@+id/p_properties"
+                android:id="@+id/s_properties"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -75,7 +75,7 @@
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/stextView5"
                 android:layout_width="79dp"
                 android:layout_height="23dp"
                 android:layout_marginTop="32dp"
@@ -86,10 +86,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.108"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/p_properties" />
+                app:layout_constraintTop_toBottomOf="@+id/s_properties" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/stextView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -100,10 +100,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.108"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/stextView5" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/stextView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -114,10 +114,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.108"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/stextView6" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/stextView21"
                 android:layout_width="84dp"
                 android:layout_height="18dp"
                 android:layout_marginStart="88dp"
@@ -128,12 +128,12 @@
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView5"
-                app:layout_constraintTop_toBottomOf="@+id/p_properties"
+                app:layout_constraintStart_toEndOf="@+id/stextView5"
+                app:layout_constraintTop_toBottomOf="@+id/s_properties"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/stextView24"
                 android:layout_width="80dp"
                 android:layout_height="22dp"
                 android:layout_marginTop="20dp"
@@ -143,12 +143,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.551"
-                app:layout_constraintStart_toEndOf="@+id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/textView21"
+                app:layout_constraintStart_toEndOf="@+id/stextView6"
+                app:layout_constraintTop_toBottomOf="@+id/stextView21"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/stextView25"
                 android:layout_width="75dp"
                 android:layout_height="23dp"
                 android:layout_marginTop="24dp"
@@ -158,11 +158,11 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.454"
-                app:layout_constraintStart_toEndOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                app:layout_constraintStart_toEndOf="@+id/stextView7"
+                app:layout_constraintTop_toBottomOf="@+id/stextView24" />
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/stextView23"
                 android:layout_width="89dp"
                 android:layout_height="22dp"
                 android:layout_marginTop="20dp"
@@ -173,10 +173,10 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView13"
-                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+                app:layout_constraintTop_toBottomOf="@+id/stextView25" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/stextView2"
                 android:layout_width="98dp"
                 android:layout_height="27dp"
                 android:layout_marginTop="20dp"
@@ -185,11 +185,11 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.612"
-                app:layout_constraintStart_toEndOf="@+id/textView14"
-                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+                app:layout_constraintStart_toEndOf="@+id/stextView14"
+                app:layout_constraintTop_toBottomOf="@+id/stextView23" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/stextView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -201,10 +201,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.108"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintTop_toBottomOf="@+id/stextView7" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/stextView14"
                 android:layout_width="85dp"
                 android:layout_height="36dp"
                 android:layout_marginTop="20dp"
@@ -216,7 +216,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.108"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                app:layout_constraintTop_toBottomOf="@+id/stextView13" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -234,7 +234,7 @@
 
 
             <TextView
-                android:id="@+id/p_properties"
+                android:id="@+id/ps_properties"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -248,7 +248,7 @@
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/pstextView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -259,10 +259,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.101"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/p_properties" />
+                app:layout_constraintTop_toBottomOf="@+id/ps_properties" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/pstextView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -271,10 +271,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.722"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/p_properties" />
+                app:layout_constraintTop_toBottomOf="@+id/ps_properties" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/pstextView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -285,10 +285,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.108"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/pstextView5" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/pstextView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -297,10 +297,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.906"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                app:layout_constraintTop_toBottomOf="@+id/pstextView17" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/pstextView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -309,10 +309,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.909"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                app:layout_constraintTop_toBottomOf="@+id/pstextView16" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/pstextView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -323,10 +323,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/pstextView6" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/pstextView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -337,10 +337,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.103"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintTop_toBottomOf="@+id/pstextView7" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/pstextView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -349,10 +349,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.59"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                app:layout_constraintTop_toBottomOf="@+id/pstextView20" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/pstextView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -361,10 +361,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.54"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                app:layout_constraintTop_toBottomOf="@+id/pstextView21" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/pstextView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -375,7 +375,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.107"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                app:layout_constraintTop_toBottomOf="@+id/pstextView13" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
